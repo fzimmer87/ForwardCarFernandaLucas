@@ -1,114 +1,62 @@
+import Constantes.ConstanteChromeDriver;
 import Constantes.ConstantesFordWardCar;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
-import junit.framework.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import java.util.List;
 
-import static net.bytebuddy.matcher.ElementMatchers.is;
+
 
 
 public class StepsForwardCar {
-
     private WebDriver driver;
 
     @Dado("que estou na página da Forward Car")
-    public void queEstouNaPaginaDaForwardCar() {
-        driver.get(ConstantesFordWardCar.URL_INVENTORY);
+    public void queEstouNaPaginaDaForwardCar() throws InterruptedException {
+
+        System.out.println(ConstanteChromeDriver.CONST_CHROME_DRIVER);
+        System.out.println(ConstanteChromeDriver.CONST_CAMINHO_CHROME_DRIVER);
+        driver = new ChromeDriver();
+        Thread.sleep(700);
+        driver.get(ConstantesFordWardCar.URL_PAGINA_INICIAL);
     }
+
     @Quando("clico em search")
-    public void clicoEmSearch() {
-        driver.findElement(By.linkText("Guest")).click();
-        driver.findElement(By.cssSelector(".form-control")).click();
+    public void clicoEmSearch() throws InterruptedException {
+        driver.findElement(By.xpath("/html/body/div[1]/div[1]/div/div/div[2]/ul/li[2]/a")).click();
+        Thread.sleep(700);
 
     }
-    @E("digito Acura")
-    public void digitoAcura() {
-        driver.findElement(By.cssSelector(".form-control")).click();
-        driver.findElement(By.cssSelector(".form-control")).sendKeys("acura");
-        driver.findElement(By.cssSelector(".btn-positive")).click();
-        driver.findElement(By.cssSelector(".form-control")).click();
-        driver.findElement(By.cssSelector(".form-control")).sendKeys("bmw");
-        driver.findElement(By.cssSelector(".btn-positive")).click();
-        driver.findElement(By.cssSelector(".form-control")).click();
-        driver.findElement(By.cssSelector(".form-control")).sendKeys("audi");
+
+    @E("digito {string}")
+    public void digito(String Acura)throws InterruptedException  {
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[2]/div[2]/a[2]/label/input")).sendKeys("acura");
+        Thread.sleep(700);
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[3]/div[3]/div/div[1]"));
+        Thread.sleep(700);
     }
+
     @Entao("aparecem modelos de carro acura")
-    public void aparecemModelosDeCarroAcura() {
+    public void aparecemModelosDeCarroAcura() throws InterruptedException{
+        List<WebElement> CarrosdaLista = driver.findElements(By.className("panel-heading"));
+        Thread.sleep(700);
+        String nomeDoCarro = "Acura";
+        Thread.sleep(700);
+        Boolean resultadoContemNomeCarro = true;
+        Thread.sleep(700);
+        for (WebElement carros : CarrosdaLista) {
+            String nomeDaBusca = carros.getText();
+            if (!nomeDaBusca.contains(nomeDoCarro)) {
+                resultadoContemNomeCarro = false;
+            }
+        }
+        System.out.println(resultadoContemNomeCarro);
     }
-    @E("digito RED,BLUE,GREEN,BLACK,SILVER")
-    public void digitoREDBLUEGREENBLACKSILVER() {
-        driver.findElement(By.cssSelector(".form-control")).click();
-        driver.findElement(By.cssSelector(".form-control")).sendKeys("blue");
-        driver.findElement(By.cssSelector(".btn-positive")).click();
-        driver.findElement(By.cssSelector(".form-control")).click();
-        driver.findElement(By.cssSelector(".form-control")).sendKeys("green");
-        driver.findElement(By.cssSelector(".btn-positive")).click();
-        driver.findElement(By.cssSelector(".form-control")).click();
-        driver.findElement(By.cssSelector(".form-control")).sendKeys("red");
-        driver.findElement(By.cssSelector(".btn-positive")).click();
-        driver.findElement(By.cssSelector(".form-control")).click();
-        driver.findElement(By.cssSelector(".form-control")).sendKeys("silver");
-        driver.findElement(By.cssSelector(".btn-positive")).click();
-        driver.findElement(By.cssSelector(".form-control")).click();
-        driver.findElement(By.cssSelector(".form-control")).sendKeys("black");
-        driver.findElement(By.cssSelector(".btn-positive")).click();
-
-    }
-    @Entao("aparecem modelos de carro da cor digitada")
-    public void aparecemModelosDeCarroDaCorDigitada() {
-    }
-
-    @E("clico no cadeado")
-    public void clicoNoCadeado() {
-        driver.findElement(By.id("//*[@id='admin']")).click();
-        
-    }
-
-    @Entao("sistema pede login e senha como admin")
-    public void sistemaPedeLoginESenhaComoAdmin() {
-    }
-
-    @E("clico em delete")
-    public void clicoEmDelete() {
-        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[3]/div[1]/div/div[3]/button[3]")).click();
-        driver.findElement(By.id("admin")).click();
-
-    }
-
-    @Quando("clico em ok")
-    public void clicoEmOk() {
-        driver.findElement(By.cssSelector(".col-sm-4:nth-child(1) .center-block:nth-child(3)")).click();
-        Assert.assertEquals(driver.switchTo().alert().getText(), is("Delete Car?"));
-
-        
-    }
-
-    @Entao("sistema exclui o carro do sistema")
-    public void sistemaExcluiOCarroDoSistema() {
-        driver.switchTo().alert().accept();
-    }
-
-    @E("clico em Add Car")
-    public void clicoEmAddCar() {
-        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/button")).click();
-    }
-
-    @Quando("clico em Population From")
-    public void clicoEmPopulationFrom() {
-        driver.findElement(By.xpath("/html/body/div[4]/div/div/div/div[2]/div/button")).click();
-    }
-    @E("modifico o campo preco")
-    public void modificoOCampoPreco() {
-        driver.findElement(By.xpath("/html/body/div[4]/div/div/div/div[2]/div/button")).sendKeys("20500");
-
-    }
-    @Entao("sistema nao inclui um modelo novo")
-    public void sistemaNaoIncluiUmModeloNovo() {
-    }
-
 
 
 }
