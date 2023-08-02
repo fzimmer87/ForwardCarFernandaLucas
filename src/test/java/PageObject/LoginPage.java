@@ -9,6 +9,7 @@ public class LoginPage {
     private WebDriver Driver;
     private By inputUsername = By.xpath("//*[@id=\"login-form\"]/fieldset/div[1]/input");
     private By inputPassword = By.xpath("//*[@id=\"login-form\"]/fieldset/div[2]/input");
+    //Trocar Button por btn quando finalizar (clean code)
     private By loginButton = By.xpath("//*[@id=\"login-form\"]/fieldset/div[3]/button");
     private By autheticationErrorMessage = By.xpath("//*[@id=\"login-form\"]/div");
     public LoginPage(WebDriver Driver) {
@@ -34,5 +35,10 @@ public class LoginPage {
     }
     public void isAuthenticationErrorMessageDisponivel() {
         this.Driver.findElement(autheticationErrorMessage).isDisplayed();
+    }
+    public void loginValido() {
+        this.Driver.findElement(inputUsername).sendKeys("l.morais");
+        this.Driver.findElement(inputPassword).sendKeys("morais");
+        this.Driver.findElement(loginButton).click();
     }
 }

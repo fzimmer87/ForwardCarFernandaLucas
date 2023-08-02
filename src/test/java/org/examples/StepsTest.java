@@ -1,9 +1,6 @@
 package org.examples;
 
-import PageObject.AutenticacaoPage;
-import PageObject.LoginPage;
-import PageObject.RedirectLoanApplication;
-import PageObject.RedirectLoginPage;
+import PageObject.*;
 import constantes.ConstantesChromeDriver;
 import constantes.ConstantesUrls;
 import io.cucumber.java.After;
@@ -38,7 +35,9 @@ public class StepsTest {
         driver.quit();
     }
 
-    ///////////////////////CT001
+    ///////////////////////////////////////////////////
+    //////////////////    CT001     ///////////////////
+    ///////////////////////////////////////////////////
     @Given("Que o usuário está na página da ForwardCar acessando o ambiente virtual")
     public void queOUsuárioEstáNaPáginaDaForwardCarAcessandoOAmbienteVirtual() throws InterruptedException {
         //Instanciando ChromeDriver para poder usar no get
@@ -64,6 +63,8 @@ public class StepsTest {
         List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
 
         //Isso daqui provavelmente vai dar erro, pois na segunda iteração ele irá falhar
+        //Como coloquei a massa de dados errada primeiro, ele funciona tranquilamente, caso fosse o contrário, provavelmente falharia
+        //pensar em solução para esse problema
         for (Map<String, String> linhas : data) {
             String username = linhas.get("Username");
             String password = linhas.get("Password");
@@ -84,8 +85,6 @@ public class StepsTest {
                 loginPage.apagarCredenciasInseridas();
                 Thread.sleep(5000);
             }
-
-
         }
     }
     @Then("Devo ser autenticado e redirecionado para a página {string}")
@@ -96,5 +95,42 @@ public class StepsTest {
         Thread.sleep(5000);
 
         //Poderia levar como erro por ser redirecionado para a página de Home e não de Loan Application?
+    }
+
+    ///////////////////////////////////////////////////
+    //////////////////    CT002     ///////////////////
+    ///////////////////////////////////////////////////
+    @Given("Que o usuário está autenticado na página Loan Application")
+    public void queOUsuárioEstáAutenticadoNaPáginaLoanApplication() throws InterruptedException {
+        driver.get(ConstantesUrls.URL_PAGINA_LOAN_APPLICATION);
+        Thread.sleep(10000);
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.loginValido();
+    }
+    @When("Eu preencher cada campo do formulário de Finance Application com os seguintes valores:")
+    public void euPreencherCadaCampoDoFormulárioDeFinanceApplicationComOsSeguintesValores(DataTable dataTable) throws InterruptedException {
+        List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
+
+        for(Map<String, String> linha : data) {
+            String campo = linha.get("Campo");
+            String valor = linha.get("Valor");
+            String aceitacao = linha.get("Aceitacao");
+
+            Boolean isAceito = Boolean.parseBoolean(aceitacao);
+
+
+            LoanApplicationPage loanApplicationPage = new LoanApplicationPage(driver);
+            loanApplicationPage.enviarCaracteresParaCampoInput(valor);
+            Thread.sleep(5000);
+
+        }
+    }
+    @Then("A inserção desses valores nos campos respectivos deve ser aceita")
+    public void aInserçãoDessesValoresNosCamposRespectivosDeveSerAceitacao() {
+        //for(Map<String, String> linha : data) {
+            //String campo = linha.get("Campo");
+            //String valor = linha.get("Valor");
+
+        //}
     }
 }
