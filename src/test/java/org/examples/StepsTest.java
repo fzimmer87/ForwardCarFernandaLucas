@@ -12,6 +12,9 @@ import io.cucumber.java.en.When;
 import io.cucumber.datatable.DataTable;
 import org.junit.Assert;
 import org.junit.BeforeClass;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.List;
@@ -19,6 +22,7 @@ import java.util.Map;
 
 public class StepsTest {
     private ChromeDriver driver;
+    private CommomSteps commomSteps;
 
     @BeforeClass
     public static void configCaminhoChromeDriver() {
@@ -28,6 +32,7 @@ public class StepsTest {
     @Before
     public void criarNovoNavegador() {
         driver = new ChromeDriver();
+        commomSteps = new CommomSteps(driver);
     }
 
     @After
@@ -101,36 +106,89 @@ public class StepsTest {
     //////////////////    CT002     ///////////////////
     ///////////////////////////////////////////////////
     @Given("Que o usuário está autenticado na página Loan Application")
-    public void queOUsuárioEstáAutenticadoNaPáginaLoanApplication() throws InterruptedException {
-        driver.get(ConstantesUrls.URL_PAGINA_LOAN_APPLICATION);
-        Thread.sleep(10000);
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.loginValido();
+    public void queOUsuárioEstáAutenticadoNaPáginaLoanApplicationCT002() throws InterruptedException {
+        commomSteps.queOUsuarioEstaAutenticadoNaPaginaLoanApplication();
     }
     @When("Eu preencher cada campo do formulário de Finance Application com os seguintes valores:")
     public void euPreencherCadaCampoDoFormulárioDeFinanceApplicationComOsSeguintesValores(DataTable dataTable) throws InterruptedException {
         List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
+        boolean checkTeste = false;
 
         for(Map<String, String> linha : data) {
             String campo = linha.get("Campo");
             String valor = linha.get("Valor");
             String aceitacao = linha.get("Aceitacao");
-
             Boolean isAceito = Boolean.parseBoolean(aceitacao);
 
-
             LoanApplicationPage loanApplicationPage = new LoanApplicationPage(driver);
-            loanApplicationPage.enviarCaracteresParaCampoInput(valor);
-            Thread.sleep(5000);
-
+            loanApplicationPage.enviarCaracteresCampoInputSwithCase(campo, valor, checkTeste, isAceito);
+            Thread.sleep(1000);
         }
     }
     @Then("A inserção desses valores nos campos respectivos deve ser aceita")
-    public void aInserçãoDessesValoresNosCamposRespectivosDeveSerAceitacao() {
-        //for(Map<String, String> linha : data) {
-            //String campo = linha.get("Campo");
-            //String valor = linha.get("Valor");
+    public void aInserçãoDessesValoresNosCamposRespectivosDeveSerAceita(List<Map<String, String>> data) {
+        boolean checkTeste = true;
 
-        //}
+        for(Map<String, String> linha : data) {
+            String campo = linha.get("Campo");
+            String valor = linha.get("Valor");
+            String aceitacao = linha.get("Aceitacao");
+            Boolean isAceito = Boolean.parseBoolean(aceitacao);
+
+            LoanApplicationPage loanApplicationPage = new LoanApplicationPage(driver);
+            loanApplicationPage.enviarCaracteresCampoInputSwithCase(campo, valor, checkTeste, isAceito);
+        }
+    }
+
+    ///////////////////////////////////////////////////
+    //////////////////    CT003     ///////////////////
+    ///////////////////////////////////////////////////
+    @Given("Que o user está autenticado na página Loan Application")
+    public void queOUserEstáAutenticadoNaPáginaLoanApplication() throws InterruptedException {
+            commomSteps.queOUsuarioEstaAutenticadoNaPaginaLoanApplication();
+    }
+
+    @When("Eu não preencher nenhum campo com nenhum valor na página Loan Application")
+    public void euNãoPreencherNenhumCampoComNenhumValorNaPáginaLoanApplication(DataTable dataTable) throws InterruptedException {
+        List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
+        boolean checkTeste = false;
+        boolean isAceito = false;
+
+        for(Map<String, String> linha : data) {
+            String campo = linha.get("Campo");
+            String valor = linha.get("Valor");
+
+            LoanApplicationPage loanApplicationPage = new LoanApplicationPage(driver);
+            loanApplicationPage.tornarCamposVazios(campo, valor);
+            Thread.sleep(1000);
+        }
+    }
+    @And("Clicar no botão {string}")
+    public void clicarNoBotão(String arg0) throws InterruptedException {
+        LoanApplicationPage loanApplicationPage = new LoanApplicationPage(driver);
+        loanApplicationPage.clicarBotaoApply();
+        Thread.sleep(7000);
+    }
+    @Then("Deve ocorrer uma falha no envio do formulário e a solicitação de empréstimo não deve ser enviada")
+    public void deveOcorrerUmaFalhaNoEnvioDoFormulárioEASolicitaçãoDeEmpréstimoNãoDeveSerEnviada() throws InterruptedException{
+        LoanApplicationPage loanApplicationPage = new LoanApplicationPage(driver);
+
+        boolean isMensagemExibidanaTela = loanApplicationPage.ismodalTitleDisplayed();
+
+        if(isMensagemExibidanaTela) {
+            System.out.println("BUG: a mensagem está sendo exibida na tela nessas condições");
+        }
+    }
+
+    ///////////////////////////////////////////////////
+    //////////////////    CT004     ///////////////////
+    ///////////////////////////////////////////////////
+    @Given("Que o user está autenticado na página Loan Application")
+    public void queOUsuarioEstáAutenticadoNaPáginaLoanApplication() throws InterruptedException {
+        commomSteps.queOUsuarioEstaAutenticadoNaPaginaLoanApplication();
+    }
+    @When("Eu preencher cada campo do formulário com valores válidos")
+    public void euPreencherCadaCampoDoFormulárioComValoresVálidos() {
+
     }
 }

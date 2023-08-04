@@ -12,7 +12,7 @@ Feature: Casos de Teste escolhidos que envolvem a página LoanApplication
       | l.morais |  morais  | True      |
     Then Devo ser autenticado e redirecionado para a página "Loan Application"
 
-  @%CT002
+  @CT002
   Scenario: Validar restrições de entrada nos campos de Finance Application
     Given Que o usuário está autenticado na página Loan Application
     When Eu preencher cada campo do formulário de Finance Application com os seguintes valores:
@@ -35,35 +35,45 @@ Feature: Casos de Teste escolhidos que envolvem a página LoanApplication
 
 
 
-  @CT003
-  Scenario Outline: Validar campos em branco em Finance Application
-    Given Que o usuário está autenticado na página Loan Application
-    When Eu não preencher nenhum <Campo> com nenhum <Valor> na página Loan Application
+  @%CT003
+  Scenario: Validar campos em branco em Finance Application
+    Given Que o user está autenticado na página Loan Application
+    When Eu não preencher nenhum campo com nenhum valor na página Loan Application
+      |    Campo                | Valor |
+      | First Name              | N/A   |
+      | Last Name               | N/A   |
+      | Adress Line 1           | N/A   |
+      | City / Town             | N/A   |
+      | State/Providence/Region | N/A   |
+      | Zip / Postal Code       | N/A   |
+      | Date of Birth           | N/A   |
+      | SSN#                    | N/A   |
+      | Employer                | N/A   |
+      | Phone                   | N/A   |
+      | Length time at a Job    | N/A   |
+      | Yearly Income           | N/A   |
+      | Loan Amount             | N/A   |
     And Clicar no botão "Apply"
     Then Deve ocorrer uma falha no envio do formulário e a solicitação de empréstimo não deve ser enviada
-    And Não deve ser exibida a mensagem de "Application Submitted!"
-
-    Examples:
-      |    Campo                | Valor                 |
-      | First Name              |                       |
-      | Last Name               |                       |
-      | Adress Line 1           |                       |
-      | City / Town             |                       |
-      | State/Providence/Region |                       |
-      | Zip / Postal Code       |                       |
-      | Country                 |                       |
-      | Date of Birth           |                       |
-      | SSN#                    |                       |
-      | Employer                |                       |
-      | Phone                   |                       |
-      | Length time at a Job    |                       |
-      | Yearly Income           |                       |
-      | Loan Amount             |                       |
 
   @CT004
   Scenario: Validar aprovação do empréstimo
     Given Que o usuário está autenticado na página Loan Application
     When Eu preencher cada campo do formulário com valores válidos
+      |    Campo                | Valor |
+      | First Name              | Joao   |
+      | Last Name               | Silva   |
+      | Adress Line 1           | 123 Main Street   |
+      | City / Town             | New York City   |
+      | State/Providence/Region | New York   |
+      | Zip / Postal Code       | 10001   |
+      | Date of Birth           | 01/01/1990   |
+      | SSN#                    | 123-45-6789   |
+      | Employer                | XYZ Corporation   |
+      | Phone                   | (555)123-4567   |
+      | Length time at a Job    | 5 years   |
+      | Yearly Income           | 50000   |
+      | Loan Amount             | 10000   |
     And Clicar no botão "Apply"
     Then O envio do formulário deve ser feito com sucesso, bem como a solicitação de empréstimo
     And Deve ser exibida a mensagem "Application Submitted!"

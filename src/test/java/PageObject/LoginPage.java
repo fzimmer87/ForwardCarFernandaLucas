@@ -36,9 +36,10 @@ public class LoginPage {
     public void isAuthenticationErrorMessageDisponivel() {
         this.Driver.findElement(autheticationErrorMessage).isDisplayed();
     }
-    public void loginValido() {
+    public void loginValido() throws InterruptedException {
         this.Driver.findElement(inputUsername).sendKeys("l.morais");
         this.Driver.findElement(inputPassword).sendKeys("morais");
         this.Driver.findElement(loginButton).click();
+        Thread.sleep(12000);
     }
 }
