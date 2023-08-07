@@ -6,13 +6,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions (
-        features = {
-                "src/test/resources/Feature/Feature.feature"
-        },
-        glue = {
-                "org.example"
-        },
+        features =   "src/test/resources/Feature/Feature.feature",
         tags = "@%CT001"
+
 
 )
 

@@ -48,4 +48,4 @@ Funcionalidade: Testar página da ForwardCar
     Quando clico em Population From
     E modifico o campo preco para "0"
     E clico em Create
-    Entao sistema nao inclui um modelo novo
+    Entao sistema nao inclui um modelo novo e nao mostra mensagem car created
