@@ -163,7 +163,7 @@ public class LoanApplicationPage {
     public void clicarBotaoApply() {
         this.Driver.findElement(btnApply).click();
     }
-    public boolean ismodalTitleDisplayed() {
+    public boolean ismodalTitleDisplayed(){
         return this.Driver.findElement(modalTitle).isDisplayed();
     }
 }

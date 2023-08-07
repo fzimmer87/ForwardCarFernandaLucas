@@ -143,10 +143,6 @@ public class StepsTest {
     ///////////////////////////////////////////////////
     //////////////////    CT003     ///////////////////
     ///////////////////////////////////////////////////
-    @Given("Que o user está autenticado na página Loan Application")
-    public void queOUserEstáAutenticadoNaPáginaLoanApplication() throws InterruptedException {
-            commomSteps.queOUsuarioEstaAutenticadoNaPaginaLoanApplication();
-    }
 
     @When("Eu não preencher nenhum campo com nenhum valor na página Loan Application")
     public void euNãoPreencherNenhumCampoComNenhumValorNaPáginaLoanApplication(DataTable dataTable) throws InterruptedException {
@@ -176,19 +172,80 @@ public class StepsTest {
         boolean isMensagemExibidanaTela = loanApplicationPage.ismodalTitleDisplayed();
 
         if(isMensagemExibidanaTela) {
-            System.out.println("BUG: a mensagem está sendo exibida na tela nessas condições");
+            System.out.println(false);
+        } else {
+            System.out.println(true);
         }
     }
 
     ///////////////////////////////////////////////////
     //////////////////    CT004     ///////////////////
     ///////////////////////////////////////////////////
-    @Given("Que o user está autenticado na página Loan Application")
-    public void queOUsuarioEstáAutenticadoNaPáginaLoanApplication() throws InterruptedException {
-        commomSteps.queOUsuarioEstaAutenticadoNaPaginaLoanApplication();
-    }
     @When("Eu preencher cada campo do formulário com valores válidos")
-    public void euPreencherCadaCampoDoFormulárioComValoresVálidos() {
+    public void euPreencherCadaCampoDoFormulárioComValoresVálidos(DataTable dataTable) throws InterruptedException {
+        List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
+        boolean checkTeste = false;
+        boolean isAceito = false;
 
+
+        for (Map<String, String> linha : data) {
+            String campo = linha.get("Campo");
+            String valor = linha.get("Valor");
+
+            LoanApplicationPage loanApplicationPage = new LoanApplicationPage(driver);
+            loanApplicationPage.enviarCaracteresCampoInputSwithCase(campo, valor, checkTeste, isAceito);
+            Thread.sleep(1000);
+        }
+    }
+
+    @Then("O envio do formulário deve ser feito com sucesso, sendo exibida a mensagem {string}")
+    public void oEnvioDoFormulárioDeveSerFeitoComSucessoSendoExibidaAMensagem(String arg0) throws InterruptedException{
+        LoanApplicationPage loanApplicationPage = new LoanApplicationPage(driver);
+        Thread.sleep(10000);
+
+        boolean isMensagemExibidanaTela = loanApplicationPage.ismodalTitleDisplayed();
+
+        if(isMensagemExibidanaTela) {
+            System.out.println(false);
+        } else {
+            System.out.println(true);
+        }
+    }
+
+    ///////////////////////////////////////////////////
+    //////////////////    CT005     ///////////////////
+    ///////////////////////////////////////////////////
+    @When("Eu preencher cada campo do formulário com valores inválidos")
+    public void euPreencherCadaCampoDoFormulárioComValoresInválidos(DataTable dataTable) throws InterruptedException {
+        List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
+        boolean checkTeste = false;
+        boolean isAceito = false;
+
+
+        for(Map<String, String> linha : data) {
+            String campo = linha.get("Campo");
+            String valor = linha.get("Valor");
+
+            LoanApplicationPage loanApplicationPage = new LoanApplicationPage(driver);
+            loanApplicationPage.enviarCaracteresCampoInputSwithCase(campo, valor, checkTeste, isAceito);
+            Thread.sleep(1000);
+        }
+    }
+
+    @Then("Deve ocorrer uma falha no envio do formulário e a mensagem de {string}")
+    public void deveOcorrerUmaFalhaNoEnvioDoFormulárioEAMensagemDe(String arg0) throws InterruptedException {
+        LoanApplicationPage loanApplicationPage = new LoanApplicationPage(driver);
+        Thread.sleep(10000);
+
+        boolean isMensagemExibidanaTela = loanApplicationPage.ismodalTitleDisplayed();
+
+        if (isMensagemExibidanaTela) {
+            System.out.println(false);
+        } else {
+            System.out.println(true);
+        }
     }
 }
+
+
+

@@ -11,7 +11,7 @@ public class CommomSteps {
     }
     public void queOUsuarioEstaAutenticadoNaPaginaLoanApplication() throws InterruptedException{
         driver.get(ConstantesUrls.URL_PAGINA_LOAN_APPLICATION);
-        Thread.sleep(10000);
+        Thread.sleep(20000);
         LoginPage loginPage = new LoginPage(driver);
         loginPage.loginValido();
     }
