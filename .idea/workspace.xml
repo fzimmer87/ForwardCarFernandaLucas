@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62fb1d79-b8e4-4ca6-b91e-fa13b6a2b51c" name="Changes" comment="Testes com pageObjects funcionando. Acertar entao">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/ConstantesCampoBy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/ConstantesCampoBy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/StepsForwardCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/StepsForwardCar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/Feature/Feature.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Feature/Feature.feature" afterDir="false" />
-    </list>
+    <list default="true" id="62fb1d79-b8e4-4ca6-b91e-fa13b6a2b51c" name="Changes" comment="Teste final, erro no teste2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -214,7 +208,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691437917985</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Teste final, erro no teste2">
+      <option name="closed" value="true" />
+      <created>1691524440324</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1691524440324</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -233,14 +235,15 @@
     <MESSAGE value="PrimeiroTestePassou" />
     <MESSAGE value="Testes com Problemas para incluir if" />
     <MESSAGE value="Testes com pageObjects funcionando. Acertar entao" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testes com pageObjects funcionando. Acertar entao" />
+    <MESSAGE value="Teste final, erro no teste2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Teste final, erro no teste2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/java/org/example/StepsForwardCar.java</url>
-          <line>155</line>
+          <line>164</line>
           <properties class="org.example.StepsForwardCar" method="sistemaMostraMensagemCarDeleted">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
