@@ -37,7 +37,7 @@ Funcionalidade: Testar página da ForwardCar
     E clico no cadeado
     E clico em delete
     Quando clico em ok
-    Entao sistema exclui o carro do sistema
+    Entao sistema mostra mensagem Car Deleted
 
   @CT005
   Cenario: Validar restrições de entrada nos campos obrigatórios ("Add a Car")

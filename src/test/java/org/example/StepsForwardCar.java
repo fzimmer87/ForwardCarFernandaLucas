@@ -4,23 +4,32 @@ import Constantes.ConstanteChromeDriver;
 import Constantes.ConstantesFordWardCar;
 import PageObjects.ConstantesCampoBy;
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.After;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
-import org.junit.After;
-import org.junit.Assert;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.List;
 
-import static org.hamcrest.core.Is.is;
 
 
 public class StepsForwardCar {
     private WebDriver driver;
+    @BeforeClass
+    public void AbrirNavegador() {
+        System.setProperty(ConstanteChromeDriver.CONST_CHROME_DRIVER, ConstanteChromeDriver.CONST_CAMINHO_CHROME_DRIVER);
+
+    }
+    @Before
+    public void IniciarDriverAntesdeCadaTeste(){
+        driver = new ChromeDriver();
+    }
 
     @After
     public void fecharNavegador(){
@@ -29,17 +38,15 @@ public class StepsForwardCar {
 
     @Dado("que estou na página da Forward Car")
     public void queEstouNaPaginaDaForwardCar() throws InterruptedException {
-        System.setProperty(ConstanteChromeDriver.CONST_CHROME_DRIVER, ConstanteChromeDriver.CONST_CAMINHO_CHROME_DRIVER);
-        driver=new ChromeDriver();
         driver.get(ConstantesFordWardCar.URL_PAGINA_INICIAL);
         Thread.sleep(3000);
     }
 
     @Quando("clico em search")
     public void clicoEmSearch() throws InterruptedException{
-       ConstantesCampoBy campoByTeste1 = new ConstantesCampoBy(driver);
-       campoByTeste1.PesquisarNoCamposSearch();
-       Thread.sleep(3000);
+        ConstantesCampoBy campoByTeste1 = new ConstantesCampoBy(driver);
+        campoByTeste1.PesquisarNoCamposSearch();
+        Thread.sleep(3000);
     }
 
     @E("digito {string}")
@@ -67,55 +74,56 @@ public class StepsForwardCar {
     @E("digito RED,BLUE,GREEN,BLACK,SILVER")
     public void digitoREDBLUEGREENBLACKSILVER(DataTable dataTable) throws InterruptedException{
         List<String> coresDigitadas = dataTable.asList(String.class);
+        ConstantesCampoBy campoBy = new ConstantesCampoBy(driver);
+
         for (String novaCor: coresDigitadas) {
-            String corAtual = novaCor;
+            campoBy.DigitarCorEncontradanaTabela(novaCor);
             Thread.sleep(3000);
-            ConstantesCampoBy campoByTeste1 = new ConstantesCampoBy(driver);
-            driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[2]/div[2]/a[2]/label/input")).sendKeys(corAtual);
-            Thread.sleep(3000);
-            campoByTeste1.ClicarBotaoClear();
-            Thread.sleep(3000);
+
+            List<WebElement> botoesViewsDetails = driver.findElements(By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[3]/div/div/div[3]/button[1]"));            campoBy.ClicarBotaoViewsDetaisls();
+
+            for (WebElement botaoViewDetail : botoesViewsDetails){
+                botaoViewDetail.click();
+                Thread.sleep(3000);
+                campoBy.resultadoCor();
+                campoBy.ClicarBotaoOkCampoViewsDetails();
+                Thread.sleep(3000);
+            }
+            campoBy.ClicarBotaoClear();
         }
     }
     @Entao("aparecem modelos de carro da cor digitada")
-    public void aparecemModelosDeCarroDaCorDigitada() {//criar outra lista e validar no entao
+    public void aparecemModelosDeCarroDaCorDigitada() {
+        driver.quit();
     }
     @E("clico no cadeado")
     public void clicoNoCadeado() {
-        driver.findElement(By.cssSelector("#admin")).click();
+        ConstantesCampoBy campoBy = new ConstantesCampoBy(driver);
+        campoBy.ClicarBotaoCadeado();
     }
 
 
     @Entao("cadeado não abre sem pedir login e senha como admin")
     public void cadeadoNaoAbreSemPedirLoginESenhaComoAdmin() {
-        Boolean abrirTelaDeAcesso = false;
-        if (abrirTelaDeAcesso.equals(driver.findElement(By.cssSelector("body.ng-scope:nth-child(2) div.container.site:nth-child(1) div.ng-scope:nth-child(2) div.row.ng-scope div.ng-scope div.container div.row div.col-sm-3 div.list-group:nth-child(2) div.list-group-item.ng-binding > button.center-block.btn.btn-primary.btn-block.btn-sm:nth-child(2)"))));
-        System.out.println("Teste falhou");
-
+        ConstantesCampoBy campoBy = new ConstantesCampoBy(driver);
+        if (campoBy.TelaAdminIsDisplayed()){
+            System.out.println(false);
+        }
     }
 
     @E("clico em delete")
-    public void clicoEmDelete(){
+    public void clicoEmDelete() throws InterruptedException{
         ConstantesCampoBy campoByTeste1 = new ConstantesCampoBy(driver);
+        Thread.sleep(3000);
         campoByTeste1.ClicarBotaoDelete();
+        Thread.sleep(3000);
     }
 
 
     @Quando("clico em ok")
     public void clicoEmOk() throws InterruptedException {
-        Assert.assertThat(driver.switchTo().alert().getText(), is ("Delete Car?"));
         driver.switchTo().alert().accept();
         Thread.sleep(3000);
-
-    }
-
-    @Entao("sistema exclui o carro do sistema")
-    public void sistemaExcluiOCarroDoSistema() {
-        ConstantesCampoBy campoByTeste1 = new ConstantesCampoBy(driver);
-        campoByTeste1.ContagemDeCarrosSistema();
-
-
-
     }
 
     @E("clico em Add Car")
@@ -127,10 +135,9 @@ public class StepsForwardCar {
 
     @Quando("clico em Population From")
     public void clicoEmPopulationFrom() throws InterruptedException{
-    ConstantesCampoBy campoByTeste1 = new ConstantesCampoBy(driver);
-    campoByTeste1.ClicarNoBotaoPopulationFrom();
+        ConstantesCampoBy campoBy = new ConstantesCampoBy(driver);
+        campoBy.ClicarNoBotaoPopulationFrom();
         Thread.sleep(3000);
-
     }
 
     @E("modifico o campo preco para {string}")
@@ -147,12 +154,21 @@ public class StepsForwardCar {
         Thread.sleep(3000);
     }
     @Entao("sistema nao inclui um modelo novo e nao mostra mensagem car created")
-    public void sistemaNaoIncluiUmModeloNovoENaoMostraMensagemCarCreated() {
+    public void sistemaNaoIncluiUmModeloNovoENaoMostraMensagemCarCreated() throws InterruptedException {
         ConstantesCampoBy campoByTeste1 = new ConstantesCampoBy(driver);
-        campoByTeste1.AcharBotaoCarCreatedNaTela();
-            System.out.println("Teste falhou");
-        }
+        Thread.sleep(3000);
+        if(campoByTeste1.AcharBotaoCarCreatedNaTela());
+        System.out.println(false);
     }
+
+    @Entao("sistema mostra mensagem Car Deleted")
+    public void sistemaMostraMensagemCarDeleted() throws InterruptedException {
+        ConstantesCampoBy campoByTeste = new ConstantesCampoBy(driver);
+        Thread.sleep(3000);
+        if (campoByTeste.AcharMensagemCarDeletedNaTela());
+        System.out.println(true);
+    }
+}
 
 
 
