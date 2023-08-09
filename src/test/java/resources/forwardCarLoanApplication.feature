@@ -12,7 +12,7 @@ Feature: Casos de Teste escolhidos que envolvem a página LoanApplication
       | l.morais |  morais  | True      |
     Then Devo ser autenticado e redirecionado para a página "Loan Application"
 
-  @%CT002
+  @CT002
   Scenario: Validar restrições de entrada nos campos de Finance Application
     Given Que o usuário está autenticado na página Loan Application
     When Eu preencher cada campo do formulário de Finance Application com os seguintes valores:
@@ -90,7 +90,7 @@ Feature: Casos de Teste escolhidos que envolvem a página LoanApplication
     And Clicar no botão "Apply"
     Then O envio do formulário deve ser feito com sucesso, sendo exibida a mensagem "Application Submitted!"
 
-  @CT005
+  @%CT005
   Scenario: Validar recusa de empréstimo
     Given Que o usuário está autenticado na página Loan Application
     When Eu preencher cada campo do formulário com valores inválidos

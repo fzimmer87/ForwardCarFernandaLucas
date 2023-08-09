@@ -98,8 +98,6 @@ public class StepsTest {
         autenticacaoPage.isNaPaginaPrincipal();
         autenticacaoPage.isLogado();
         Thread.sleep(5000);
-
-        //Poderia levar como erro por ser redirecionado para a página de Home e não de Loan Application?
     }
 
     ///////////////////////////////////////////////////
@@ -206,9 +204,9 @@ public class StepsTest {
         boolean isMensagemExibidanaTela = loanApplicationPage.ismodalTitleDisplayed();
 
         if(isMensagemExibidanaTela) {
-            System.out.println(false);
-        } else {
             System.out.println(true);
+        } else {
+            System.out.println(false);
         }
     }
 
