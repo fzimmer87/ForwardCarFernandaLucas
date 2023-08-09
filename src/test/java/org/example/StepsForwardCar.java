@@ -5,12 +5,10 @@ import Constantes.ConstantesFordWardCar;
 import PageObjects.ConstantesCampoBy;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.After;
-import io.cucumber.java.pt.Dado;
-import io.cucumber.java.pt.E;
-import io.cucumber.java.pt.Entao;
-import io.cucumber.java.pt.Quando;
+import io.cucumber.java.pt.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.omg.CORBA.portable.IndirectionException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -80,7 +78,8 @@ public class StepsForwardCar {
             campoBy.DigitarCorEncontradanaTabela(novaCor);
             Thread.sleep(3000);
 
-            List<WebElement> botoesViewsDetails = driver.findElements(By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[3]/div/div/div[3]/button[1]"));            campoBy.ClicarBotaoViewsDetaisls();
+            List<WebElement> botoesViewsDetails = driver.findElements(By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[3]/div/div/div[3]/button[1]"));
+            campoBy.ClicarBotaoViewsDetaisls();
 
             for (WebElement botaoViewDetail : botoesViewsDetails){
                 botaoViewDetail.click();
@@ -94,7 +93,7 @@ public class StepsForwardCar {
     }
     @Entao("aparecem modelos de carro da cor digitada")
     public void aparecemModelosDeCarroDaCorDigitada() {
-        driver.quit();
+
     }
     @E("clico no cadeado")
     public void clicoNoCadeado() {
@@ -167,6 +166,139 @@ public class StepsForwardCar {
         Thread.sleep(3000);
         if (campoByTeste.AcharMensagemCarDeletedNaTela());
         System.out.println(true);
+    }
+
+    @E("clico em Guest")
+    public void clicoEmGuest() throws InterruptedException{
+        Thread.sleep(3000);
+        ConstantesCampoBy campoByTeste = new ConstantesCampoBy(driver);
+        campoByTeste.ClicarNoBotaoGuest();
+        Thread.sleep(3000);
+    }
+
+    @E("clico em Register")
+    public void clicoEmRegister() throws InterruptedException {
+        Thread.sleep(3000);
+        ConstantesCampoBy campoBy = new ConstantesCampoBy(driver);
+        campoBy.ClicarBotaoRegister();
+    }
+
+    @Quando("digito campo FIRST NAME, LAST NAME, USARNAME, PASSWORD com dados")
+    public void digitoCampoFIRSTNAMELASTNAMEUSARNAMEPASSWORDComDados() throws InterruptedException {
+
+        Thread.sleep(3000);
+        driver.findElement(By.name("firstname")).sendKeys("Fernanda");
+        Thread.sleep(3000);
+        driver.findElement(By.name("lastname")).sendKeys("Zimmer");
+        Thread.sleep(3000);
+        driver.findElement(By.name("username")).sendKeys("zimmerf");
+        Thread.sleep(3000);
+        driver.findElement(By.name("password")).sendKeys("852456");
+        Thread.sleep(3000);
+        driver.findElement(By.cssSelector(".btn")).click();
+        Thread.sleep(3000);
+    }
+
+
+    @Entao("só consigo realizar o Registro com todos os campos preenchidos")
+    public void sóConsigoRealizarORegistroComTodosOsCamposPreenchidos()throws InterruptedException {
+        Thread.sleep(3000);
+        String URL_nova = driver.getCurrentUrl();
+        if (URL_nova == ConstantesFordWardCar.URL_PAGINA_LOGIN) {
+            System.out.println(false);
+        } else {
+            System.out.println(true);
+        }
+    }
+
+    @E("clico em Login")
+    public void clicoEmLogin() throws InterruptedException{
+        ConstantesCampoBy campoBy = new ConstantesCampoBy(driver);
+        campoBy.ClicarBotaoLogin();
+    }
+
+    @Quando("preencho usarname e passoword com dados já cadastrado no Register")
+    public void preenchoUsarnameEPassowordComDadosJaCadastradoNoRegister()throws InterruptedException {
+        Thread.sleep(3000);
+        ConstantesCampoBy campoBy = new ConstantesCampoBy(driver);
+        campoBy.RealizarLoginComUsarnameSenha();
+    }
+
+    @Entao("sistema me encaminha para pagina principal da Forward Car")
+    public void sistemaMeEncaminhaParaPaginaPrincipalDaForwardCar() throws InterruptedException{
+        Thread.sleep(3000);
+        String URL_nova = driver.getCurrentUrl();
+        if (URL_nova == ConstantesFordWardCar.URL_PAGINA_INICIAL) {
+            System.out.println(false);
+        } else {
+            System.out.println(true);
+        }
+    }
+
+    @E("clico no botao Guest")
+    public void clicoNoBotaoGuest() throws InterruptedException{
+        ConstantesCampoBy campoBy = new ConstantesCampoBy(driver);
+        campoBy.ClicarNoBotaoGuest();
+        Thread.sleep(4000);
+    }
+
+    @Dado("que estou na pagina inventory da Forward Car")
+    public void queEstouNaPaginaInventoryDaForwardCar() throws InterruptedException{
+        driver.get(ConstantesFordWardCar.URL_PAGINA_INVETORY);
+        Thread.sleep(3000);
+    }
+
+    @E("clico no botao Make {string}")
+    public void clicoNoBotaoMake(String Acura) {
+        ConstantesCampoBy campoBy = new ConstantesCampoBy(driver);
+        campoBy.ClicarNoBortaoAcura();
+    }
+
+    @Quando("clico no botao Model RLX-AWD")
+    public void clicoNoBotaoModelRLXAWD() {
+        ConstantesCampoBy campoBy = new ConstantesCampoBy(driver);
+        campoBy.ClicarNoBotaoModelRLXAWD();
+    }
+
+    @Entao("aparecem modelos de carro Acura RLX-AWD")
+    public void aparecemModelosDeCarroAcuraRLXAWD() {
+        ConstantesCampoBy campoBy = new ConstantesCampoBy(driver);
+        campoBy.TelaNomedosCarros();
+    }
+
+    @E("clico campo busca search")
+    public void clicoCampoBuscaSearch() {
+        ConstantesCampoBy campoBy = new ConstantesCampoBy(driver);
+        campoBy.ClicarNoCampoSearch();
+    }
+
+
+    @E("realizo meu login com Usarname e Senha")
+    public void realizoMeuLoginComUsarnameESenha() {
+        ConstantesCampoBy campoBy = new ConstantesCampoBy(driver);
+        campoBy.RealizarLoginComUsarnameSenha();
+    }
+
+    @E("clico onde esta meu nome Guest")
+    public void clicoOndeEstaMeuNomeGuest() {
+        ConstantesCampoBy campoBy = new ConstantesCampoBy(driver);
+        campoBy.ClicarNoCampoGuestLogado();
+    }
+    @Quando("clico em Loan Status")
+    public void clicoEmLoanStatus() {
+        ConstantesCampoBy campoBy = new ConstantesCampoBy(driver);
+        campoBy.ClicarNoBotaoLoanStatus();
+    }
+
+    @Entao("sou encaminhado para pagina onde verifico meus emprestimos e financiamentos")
+    public void souEncaminhadoParaPaginaOndeVerificoMeusEmprestimosEFinanciamentos()throws InterruptedException {
+        Thread.sleep(3000);
+        String URL_nova = driver.getCurrentUrl();
+        if (URL_nova == ConstantesFordWardCar.URL_PAGINA_LOAN_STATUS) {
+            System.out.println(false);
+        } else {
+            System.out.println(true);
+        }
     }
 }
 

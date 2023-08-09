@@ -27,14 +27,24 @@ public class ConstantesCampoBy {
     private By BotaoCadeado = By.cssSelector("#admin");
     private By MensagemCarDeleted = By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[1]/div[1]/div/span");
     private By BotaoCampoSearch = By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[2]/div[2]/a[2]/label/input");
+    private By BotaoGuest = By.xpath("/html/body/div[1]/div[1]/div/div/div[2]/ul/li[5]/a/span[1]");
+    private By BotaoMake = By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[2]/div[3]/a[2]");
+    private By BotaoModelRLXAWD= By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[2]/div[4]/a[3]");
+    private By BotaoLogin= By.xpath("/html/body/div[1]/div[1]/div/div/div[2]/ul/li[5]/ul/li[1]/a");
+    private By CampoUsarnameLogin = By.xpath("//*[@id=\"login-form\"]/fieldset/div[1]/input");
+    private By CampoPassowordLogin = By.xpath("//*[@id=\"login-form\"]/fieldset/div[2]/input");
+    private By BotaoSignInPagLogin = By.xpath("//*[@id=\"login-form\"]/fieldset/div[3]/button");
+    private By BotaoGuestComMeunome = By.xpath("/html/body/div[1]/div[1]/div/div/div[2]/ul/li[5]/a/span[1]");
+    private By BotaoLoanStatus = By.xpath("/html/body/div[1]/div[1]/div/div/div[2]/ul/li[5]/ul/li[3]/a");
+    private By BotaoRegister= By.xpath("/html/body/div[1]/div[1]/div/div/div[2]/ul/li[5]/ul/li[2]/a");
+
 
     public ConstantesCampoBy(WebDriver driver) {
         this.driver = driver;
     }
 
     public void resultadoCor() {
-       Assert.assertEquals(driver.findElement (CampoCorViewsDetails).getText(),driver.findElement (BotaoCampoSearch).getText());
-
+        Assert.assertEquals(driver.findElement (CampoCorViewsDetails).getText(),driver.findElement (BotaoCampoSearch).getText());
     }
 
     public void PesquisarNoCamposSearch() {
@@ -67,7 +77,7 @@ public class ConstantesCampoBy {
     }
 
     public boolean AcharBotaoCarCreatedNaTela() {
-       return this.driver.findElement(MensagemCarCreated).isDisplayed();
+        return this.driver.findElement(MensagemCarCreated).isDisplayed();
     }
 
     public void LimparCampoPrice() {
@@ -78,8 +88,8 @@ public class ConstantesCampoBy {
         this.driver.findElement(BotaoPrice).sendKeys("0");
     }
 
-    public void TelaNomedosCarros() {
-        this.driver.findElement(TelacomNomedeTodosCarros);
+    public boolean TelaNomedosCarros() {
+        return this.driver.findElement(TelacomNomedeTodosCarros).isDisplayed();
     }
 
     public boolean TelaAdminIsDisplayed() {
@@ -96,15 +106,47 @@ public class ConstantesCampoBy {
         driver.findElement(BotaoCadeado).click();
     }
     public boolean AcharMensagemCarDeletedNaTela(){
-       return this.driver.findElement(MensagemCarDeleted).isDisplayed();
+        return this.driver.findElement(MensagemCarDeleted).isDisplayed();
     }
     public void DigitarCorEncontradanaTabela( String corAtual){
         WebElement coratual = driver.findElement(BotaoCampoSearch);
         coratual.clear();
         coratual.sendKeys(corAtual);
     }
-
+    public void ClicarNoBotaoGuest(){
+        this.driver.findElement(BotaoGuest).click();
     }
+    public void ClicarNoBortaoAcura(){
+        this.driver.findElement(BotaoMake).click();
+    }
+    public void ClicarNoBotaoModelRLXAWD(){
+        this.driver.findElement(BotaoModelRLXAWD).click();
+    }
+    public void ClicarNoCampoSearch(){
+        this.driver.findElement(BotaoCampoSearch).click();
+    }
+    public void ClicarBotaoLogin(){
+        this.driver.findElement(BotaoLogin).click();
+    }
+    public void RealizarLoginComUsarnameSenha(){
+        this.driver.findElement(CampoUsarnameLogin).sendKeys("zimmerf");
+        this.driver.findElement(CampoPassowordLogin).sendKeys("852456");
+        this.driver.findElement(BotaoSignInPagLogin).click();
+    }
+    public void ClicarNoCampoGuestLogado(){
+        this.driver.findElement(BotaoGuestComMeunome).click();
+    }
+    public void ClicarNoBotaoLoanStatus(){
+        this.driver.findElement(BotaoLoanStatus).click();
+    }
+    public void ClicarBotaoRegister(){
+        this.driver.findElement(BotaoRegister).click();
+    }
+
+
+}
+
+
 
 
 
