@@ -6,10 +6,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions (
-        features =   "src/test/resources/Feature/Feature.feature",
-        tags = "@%CT001"
-
-
+        features = "src/test/resources/Feature/Feature.feature",
+        tags = "@CT007"
 )
 
 public class Runner {

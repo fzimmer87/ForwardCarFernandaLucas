@@ -13,7 +13,7 @@ Funcionalidade: Testar página da ForwardCar
   Cenario: Validar o campo Search como Cor
     Dado que estou na página da Forward Car
     Quando clico em search
-    E digito RED,BLUE,GREEN,BLACK,SILVER
+    E digito
 
       | RED    |
       | BLUE   |
@@ -62,21 +62,18 @@ Funcionalidade: Testar página da ForwardCar
       |            | Zimmer  | zimmerf | 123456 |
     Entao só consigo realizar o Registro com todos os campos preenchidos
 
-
   @CT007
   Cenario: Validar Botão Login
     Dado que estou na página da Forward Car
     E clico em Guest
     E clico em Login
     Quando preencho usarname e passoword com dados já cadastrado no Register
-      |USARNAME |PASSWORD|
-      | zimmerf | 852456 |
     Entao sistema me encaminha para pagina principal da Forward Car
 
   @CT008
   Cenario: Validar o campo Make e seus filtro.
     Dado que estou na pagina inventory da Forward Car
-    E clico no botao Make "Acura"
+    E clico no botao Make Acura
     Quando clico no botao Model RLX-AWD
     Entao aparecem modelos de carro Acura RLX-AWD
 
@@ -98,6 +95,7 @@ Funcionalidade: Testar página da ForwardCar
   Cenario: Validar o Botao Loan Aplication tela Inicial
     Dado que estou na página da Forward Car
     E clico em Guest
+    E clico em Login
     E realizo meu login com Usarname e Senha
     E clico onde esta meu nome Guest
     Quando clico em Loan Status
