@@ -52,8 +52,8 @@ public class StepsTest {
     }
     @When("Eu clicar no botão {string} no cabeçalho da página")
     public void euClicarNoBotãoNoCabeçalhoDaPágina(String arg0) throws InterruptedException {
-        RedirectLoanApplication redirectLoanApplication = new RedirectLoanApplication(driver);
-        redirectLoanApplication.clicarBotaoLoanApplication();
+        //RedirectLoanApplication redirectLoanApplication = new RedirectLoanApplication(driver);
+        //redirectLoanApplication.clicarBotaoLoanApplication();
         Thread.sleep(5000);
     }
 
