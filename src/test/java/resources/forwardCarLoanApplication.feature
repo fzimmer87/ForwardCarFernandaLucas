@@ -1,7 +1,7 @@
 Feature: Casos de Teste escolhidos que envolvem a página LoanApplication
 
   #Uma opção para o loop for seria utilizar um Scenario Outline, que facilita esse processo
-  @CT001
+  @%CT001
   Scenario: Validar acesso autenticado a página Loan Application
     Given Que o usuário está na página da ForwardCar acessando o ambiente virtual
     When Eu clicar no botão "Loan Application" no cabeçalho da página
@@ -90,7 +90,7 @@ Feature: Casos de Teste escolhidos que envolvem a página LoanApplication
     And Clicar no botão "Apply"
     Then O envio do formulário deve ser feito com sucesso, sendo exibida a mensagem "Application Submitted!"
 
-  @%CT005
+  @CT005
   Scenario: Validar recusa de empréstimo
     Given Que o usuário está autenticado na página Loan Application
     When Eu preencher cada campo do formulário com valores inválidos
@@ -110,3 +110,77 @@ Feature: Casos de Teste escolhidos que envolvem a página LoanApplication
       | Loan Amount             |10000000000000000 |
     And Clicar no botão "Apply"
     Then Deve ocorrer uma falha no envio do formulário e a mensagem de "Application Submitted não deve ser exibida"
+
+  @CT006
+  Scenario: Validar Acesso a página VIN Lookup
+    Given Que o usuário está na página da ForwardCar acessando o ambiente virtual
+    When Eu clicar no Botão "Vin Lookup" no cabeçalho da página
+    Then Devo ser redirecionado para a página "Vin Lookup"
+
+  @CT007
+  Scenario: Validar cadastro do carro no Inventory
+    Given Que o usuário está na página da ForwardCar acessando o ambiente virtual
+    When Eu pressionar o botão "Search" no cabeçalho da página
+    Then Devo ser redirecionado para a pagina search
+    And Deve ser exibida a lista de carros cadastrados no Inventory da ForwardCar
+
+  @CT008
+  Scenario Outline: Validar campo de VIN
+    Given Que o usuário está na página VIN Lookup
+    When inserir o codigo VIN <VIN> do carro <NomeCarro> no campo Vehicle History Report
+    And Pressionar o botao "LookUp"
+    Then O histórico do carro <NomeCarro> deve ser exibido
+
+    Examples:
+      NomeCarro     |VIN              |                                                               |
+      Audi A4-B     |2T1KR32E37C639014|
+      Acura RLX-AWD |1ZVBP8AM1D5256900|
+      Acura RLX-AWD |3N1CB51D35l458771|
+      Acura RLX-AWD |2T1KR32E37C639012|
+      Audi S4-S     |3N1CB51D35l458773|
+      BMW 7-Series-P|3N1CB51D35l458774|
+      Audi A4-B     |2T1KR32E37C639015|
+      Audi A4-B     |2T1KR32E37C639015|
+      BMW 7-Series-P|1ZVBP8AM1D5256907|
+      Acura RLX-B   |3N1CB51D35l458778|
+      Acura RLX-B   |3N1CB41D32l458778|
+      Audi A4-C     |3H1CB51D35l453773|
+      BMW 3-Series-S|1XCBP8AM1D5256909|
+      BMW 5-Series-S|7XCBP8AM1D5256910|
+      "            "|12345678910111213|Nenhum histórico de carro deve ser exibido                                      |
+      #|Acabar de adicionar um novo carro ao banco de dados|BMW M5-S      |1Z1CB51D25l454473|O histórico do carro recém adicionado                                           |
+      #|Acabar de editar um carro presente no sistema      |BMW 3-Series-S|1XCBP8AM1D5256909|O histórico do carro correspondente ao código VIN inserido com as edições feitas|
+
+    @CT009
+    Scenario: Validar exibição dos carros após a exclusão
+      Given Que o usuário está na página Search como Admin
+      When Eu clicar no botão 'Delete' debaixo de algum carro
+      And Confirmar a ação de deletar o carro
+      Then O carro deve ser deletado do banco de dados
+      And O carro Audi A4-B não deve mais ser exibido no sistema
+
+    @CT010
+    Scenario: Consulta do carro por "View Details"
+      Given Que o usuário está na página Search
+      And Localizou um carro cadastrado no inventory e deseja acessar seu histórico
+        |Carro         |
+        |Audi A4-B     |
+        |Acura RLX-AWD |
+        |Acura RLX-AWD |
+        |Acura RLX-AWD |
+        |Audi S4-S     |
+        |BMW 7-Series-P|
+        |Audi A4-B     |
+        |Audi A4-B     |
+        |BMW 7-Series-P|
+        |Acura RLX-B   |
+        |Acura RLX-B   |
+        |Audi A4-C     |
+        |BMW 3-Series-S|
+        |BMW 5-Series-S|
+        |"            "|
+        |BMW M5-S      |
+        |BMW 3-Series-S|
+      When Eu clicar no botão "View Details"
+      And Pressionar o botão com o VIN do carro
+      Then Devo ser redirecionado para a página VIN Lookup, com o código do veículo inserido no campo de busca

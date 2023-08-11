@@ -17,6 +17,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -242,6 +243,116 @@ public class StepsTest {
         } else {
             System.out.println(true);
         }
+    }
+
+    ///////////////////////////////////////////////////
+    //////////////////    CT006     ///////////////////
+    ///////////////////////////////////////////////////
+
+    @When("Eu clicar no Botão {string} no cabeçalho da página")
+    public void euClicarNoBotãoVinLookupNoCabeçalhoDaPágina(String arg0) {
+        RedirectVinLookup redirectVinLookup = new RedirectVinLookup(driver);
+        redirectVinLookup.clickButtonVinLookup();
+    }
+
+    @Then("Devo ser redirecionado para a página {string}")
+    public void devoSerRedirecionadoParaAPágina(String arg0) {
+        RedirectVinLookup redirectVinLookup = new RedirectVinLookup(driver);
+        String urlAtual = redirectVinLookup.getUrlAtual();
+
+        if (urlAtual.equals(ConstantesUrls.URL_PAGINA_VIN_LOOKUP)) {
+            System.out.println(true);
+        } else {
+            System.out.println(false);
+        }
+        
+    }
+
+    ///////////////////////////////////////////////////
+    //////////////////    CT007     ///////////////////
+    ///////////////////////////////////////////////////
+
+    @When("Eu pressionar o botão {string} no cabeçalho da página")
+    public void euPressionarOBotãoSearchNoCabeçalhoDaPágina(String arg0) throws InterruptedException {
+        RedirectSearch redirectSearch = new RedirectSearch(driver);
+        redirectSearch.clickButtonSearch();
+        Thread.sleep(5000);
+    }
+
+    @Then("Devo ser redirecionado para a pagina search")
+    public void devoSerRedirecionadoParaAPaginaSearch() {
+        RedirectSearch redirectSearch = new RedirectSearch(driver);
+        String urlAtual = redirectSearch.getUrlAtual();
+
+        if (urlAtual.equals(ConstantesUrls.URL_PAGINA_SEARCH)) {
+            System.out.println(true);
+        } else {
+            System.out.println(false);
+        }
+    }
+
+    @And("Deve ser exibida a lista de carros cadastrados no Inventory da ForwardCar")
+    public void deveSerExibidaAListaDeCarrosCadastradosNoInventoryDaForwardCar() {
+        SearchPage searchPage = new SearchPage(driver);
+        if (searchPage.isCarsListDisponivel()) {
+            System.out.println(true);
+        } else {
+            System.out.println(false);
+        }
+    }
+
+    ///////////////////////////////////////////////////
+    //////////////////    CT008     ///////////////////
+    ///////////////////////////////////////////////////
+
+    @Given("Que o usuário está na página VIN Lookup")
+    public void queOUsuárioEstáNaPáginaVINLookup() throws  InterruptedException {
+        driver.get(ConstantesUrls.URL_PAGINA_VIN_LOOKUP);    
+        Thread.sleep(5000);
+    }
+
+    @When("inserir o codigo VIN <VIN> do carro <NomeCarro> no campo Vehicle History Report")
+    public void inserirOCodigoVINVINDoCarroNomeCarroNoCampoVehicleHistoryReport(String VIN) {
+        SearchPage searchPage = new SearchPage(driver);
+        searchPage.enviarVinCampoInput(VIN);
+    }
+    @And("Pressionar o botao {string}")
+    public void pressionarOBotao(String arg0) {
+        SearchPage searchPage = new SearchPage(driver);
+        searchPage.clickBtnVinLookup();
+    }
+
+    @Then("O histórico do carro <NomeCarro> deve ser exibido")
+    public void oHistóricoDoCarroNomeCarroDeveSerExibido() {
+        SearchPage searchPage = new SearchPage(driver);
+        searchPage.getValoresVinLookup();
+    }
+
+    ///////////////////////////////////////////////////
+    //////////////////    CT009     ///////////////////
+    ///////////////////////////////////////////////////
+
+    @Given("Que o usuário está na página Search como Admin")
+    public void queOUsuárioEstáNaPáginaSearchComoAdmin() {
+        SearchPage searchPage = new SearchPage(driver);
+        searchPage.tornarAdmin();
+    }
+    @When("Eu clicar no botão {string} debaixo de algum carro")
+    public void euClicarNoBotãoDeleteDebaixoDeAlgumCarro() {
+        SearchPage searchPage = new SearchPage(driver);
+
+        searchPage.clickDelete();
+    }
+    @And("Confirmar a ação de deletar o carro")
+    public void confirmarAAçãoDeDeletarOCarro() {
+     SearchPage searchPage = new SearchPage(driver);
+     searchPage.confirmarDelete();
+    }
+    
+    @Then("O carro deve ser deletado do banco de dados")
+    public void oCarroDeveSerDeletadoDoBancoDeDados() {
+
+    
     }
 }
 
