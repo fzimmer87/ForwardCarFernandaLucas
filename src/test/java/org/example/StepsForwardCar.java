@@ -133,7 +133,7 @@ public class StepsForwardCar {
     public void modificoOCampoPrecoPara(String arg0) throws InterruptedException {
         constantesCampoBy.LimparCampoPrice();
         constantesCampoBy.DeixarCampoPriceZerado();
-        Thread.sleep(4000);
+        Thread.sleep(3000);
     }
     @E("clico em Create")
     public void clicoEmCreate() throws InterruptedException {
