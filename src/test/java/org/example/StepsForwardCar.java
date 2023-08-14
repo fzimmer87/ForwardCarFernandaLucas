@@ -1,6 +1,4 @@
 package org.example;
-
-
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -41,7 +39,7 @@ public class StepsForwardCar {
 
     @Dado("que estou na página da Forward Car")
     public void queEstouNaPaginaDaForwardCar() throws InterruptedException {
-        driver.get(ConstantesFordWardCar.URL_PAGINA_INICIAL);
+       driver.get(ConstantesFordWardCar.URL_PAGINA_INICIAL);
         Thread.sleep(3000);
     }
     @Dado("que estou na pagina inventory da Forward Car")
@@ -135,7 +133,7 @@ public class StepsForwardCar {
     public void modificoOCampoPrecoPara(String arg0) throws InterruptedException {
         constantesCampoBy.LimparCampoPrice();
         constantesCampoBy.DeixarCampoPriceZerado();
-        Thread.sleep(3000);
+        Thread.sleep(4000);
     }
     @E("clico em Create")
     public void clicoEmCreate() throws InterruptedException {
