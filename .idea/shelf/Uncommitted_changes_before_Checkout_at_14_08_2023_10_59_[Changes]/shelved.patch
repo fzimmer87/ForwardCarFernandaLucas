@@ -1,0 +1,182 @@
+Index: src/test/java/org/example/Runner.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example;\r\n\r\nimport io.cucumber.junit.Cucumber;\r\nimport io.cucumber.junit.CucumberOptions;\r\nimport org.junit.runner.RunWith;\r\n\r\n@RunWith(Cucumber.class)\r\n@CucumberOptions (\r\n        features = \"src/test/resources/Feature/Feature.feature\",\r\n        tags = \"@CT007\"\r\n)\r\n\r\npublic class Runner {\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/org/example/Runner.java b/src/test/java/org/example/Runner.java
+--- a/src/test/java/org/example/Runner.java	(revision 04c258d6caecc501658c0203e7a3ecab00413a36)
++++ b/src/test/java/org/example/Runner.java	(date 1692021065348)
+@@ -7,7 +7,10 @@
+ @RunWith(Cucumber.class)
+ @CucumberOptions (
+         features = "src/test/resources/Feature/Feature.feature",
+-        tags = "@CT007"
++        glue = { "org.example"
++        },
++        tags = "@CT001"
++
+ )
+ 
+ public class Runner {
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"62fb1d79-b8e4-4ca6-b91e-fa13b6a2b51c\" name=\"Changes\" comment=\"teste com problema para rodar\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"develop\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2TLl8HjCDQfqTyC0Ha46moeOBOh\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;ToolWindowGit.ShowToolbar&quot;: &quot;false&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/ProjetosBN/Projetos individuais/ProjetoGrupo/ProjetoForwardCar&quot;\r\n  },\r\n  &quot;keyToStringList&quot;: {\r\n    &quot;ChangesTree.GroupingKeys&quot;: [\r\n      &quot;directory&quot;,\r\n      &quot;module&quot;\r\n    ]\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\ProjetosBN\\Projetos individuais\\ProjetoGrupo\\ForwardCarFernandaLucas\\src\\test\\java\\Feature\" />\r\n    </key>\r\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\r\n      <recent name=\"org.example\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Cucumber Java.Scenario: Validar o campo Nome com Nomes dos respectivos carros\">\r\n    <configuration name=\"Scenario: Validar Botão Login\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\r\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/Feature/Feature.feature\" />\r\n      <option name=\"GLUE\" value=\"org.example\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\r\n      <module name=\"ForwardCarFernandaLucas\" />\r\n      <option name=\"NAME_FILTER\" value=\"^Validar Botão Login$\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Validar Botão Login$&quot;\" />\r\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: Validar Botão Login\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Scenario: Validar o Botao Loan Aplication tela Inicial\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\r\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/Feature/Feature.feature\" />\r\n      <option name=\"GLUE\" value=\"org.example\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\r\n      <module name=\"ForwardCarFernandaLucas\" />\r\n      <option name=\"NAME_FILTER\" value=\"^Validar o Botao Loan Aplication tela Inicial$\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Validar o Botao Loan Aplication tela Inicial$&quot;\" />\r\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: Validar o Botao Loan Aplication tela Inicial\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Scenario: Validar o campo Make e seus filtro.\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\r\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/Feature/Feature.feature\" />\r\n      <option name=\"GLUE\" value=\"org.example\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\r\n      <module name=\"ForwardCarFernandaLucas\" />\r\n      <option name=\"NAME_FILTER\" value=\"^Validar o campo Make e seus filtro\\.$\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Validar o campo Make e seus filtro\\.$&quot;\" />\r\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: Validar o campo Make e seus filtro.\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Scenario: Validar o campo Nome com Nomes dos respectivos carros\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\r\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/Feature/Feature.feature\" />\r\n      <option name=\"GLUE\" value=\"org.example\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\r\n      <module name=\"ForwardCarFernandaLucas\" />\r\n      <option name=\"NAME_FILTER\" value=\"^Validar o campo Nome com Nomes dos respectivos carros$\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Validar o campo Nome com Nomes dos respectivos carros$&quot;\" />\r\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: Validar o campo Nome com Nomes dos respectivos carros\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Scenario: Validar o campo Search como Cor\" type=\"CucumberJavaRunConfigurationType\" factoryName=\"Cucumber java\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"CUCUMBER_CORE_VERSION\" value=\"5\" />\r\n      <option name=\"FILE_PATH\" value=\"$PROJECT_DIR$/src/test/resources/Feature/Feature.feature\" />\r\n      <option name=\"GLUE\" value=\"org.example\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"io.cucumber.core.cli.Main\" />\r\n      <module name=\"ForwardCarFernandaLucas\" />\r\n      <option name=\"NAME_FILTER\" value=\"^Validar o campo Search como Cor$\" />\r\n      <option name=\"PROGRAM_PARAMETERS\" value=\" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Validar o campo Search como Cor$&quot;\" />\r\n      <option name=\"SUGGESTED_NAME\" value=\"Scenario: Validar o campo Search como Cor\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$MODULE_WORKING_DIR$\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"io.cucumber.core.cli.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\"Cucumber Java.Scenario: Validar o campo Nome com Nomes dos respectivos carros\" />\r\n      <item itemvalue=\"Cucumber Java.Scenario: Validar o campo Search como Cor\" />\r\n      <item itemvalue=\"Cucumber Java.Scenario: Validar Botão Login\" />\r\n      <item itemvalue=\"Cucumber Java.Scenario: Validar o Botao Loan Aplication tela Inicial\" />\r\n      <item itemvalue=\"Cucumber Java.Scenario: Validar o campo Make e seus filtro.\" />\r\n    </list>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Cucumber Java.Scenario: Validar o campo Nome com Nomes dos respectivos carros\" />\r\n        <item itemvalue=\"Cucumber Java.Scenario: Validar o campo Search como Cor\" />\r\n        <item itemvalue=\"Cucumber Java.Scenario: Validar o Botao Loan Aplication tela Inicial\" />\r\n        <item itemvalue=\"Cucumber Java.Scenario: Validar Botão Login\" />\r\n        <item itemvalue=\"Cucumber Java.Scenario: Validar o campo Make e seus filtro.\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"62fb1d79-b8e4-4ca6-b91e-fa13b6a2b51c\" name=\"Changes\" comment=\"\" />\r\n      <created>1690830082611</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1690830082611</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"PrimeiroGit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1690906277939</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1690906277939</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"PrimeiroTestePassou\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1690991288009</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1690991288009</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Testes com Problemas para incluir if\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1691093720392</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1691093720392</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Testes com pageObjects funcionando. Acertar entao\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1691437712473</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1691437712473</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Testes com pageObjects funcionando. Acertar entao\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1691437917985</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1691437917985</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Teste final, erro no teste2\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1691524440324</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1691524440324</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Teste final, erro no teste2\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1691524715648</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1691524715648</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Testes 6,7,8,9 e 10 adicionados\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1691612692598</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1691612692598</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"9\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"origin/develop\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"PrimeiroGit\" />\r\n    <MESSAGE value=\"PrimeiroTestePassou\" />\r\n    <MESSAGE value=\"Testes com Problemas para incluir if\" />\r\n    <MESSAGE value=\"Testes com pageObjects funcionando. Acertar entao\" />\r\n    <MESSAGE value=\"Teste final, erro no teste2\" />\r\n    <MESSAGE value=\"Testes 6,7,8,9 e 10 adicionados\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Testes 6,7,8,9 e 10 adicionados\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <breakpoint enabled=\"true\" type=\"java-exception\">\r\n          <properties class=\"java.lang.NullPointerException\" package=\"java.lang\" />\r\n          <option name=\"timeStamp\" value=\"6\" />\r\n        </breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 04c258d6caecc501658c0203e7a3ecab00413a36)
++++ b/.idea/workspace.xml	(date 1692021065417)
+@@ -4,7 +4,7 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="62fb1d79-b8e4-4ca6-b91e-fa13b6a2b51c" name="Changes" comment="teste com problema para rodar" />
++    <list default="true" id="62fb1d79-b8e4-4ca6-b91e-fa13b6a2b51c" name="Changes" comment="Testes 6,7,8,9 e 10 adicionados" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -54,16 +54,16 @@
+       <recent name="org.example" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="Cucumber Java.Scenario: Validar o campo Nome com Nomes dos respectivos carros">
+-    <configuration name="Scenario: Validar Botão Login" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
++  <component name="RunManager" selected="JUnit.Runner">
++    <configuration name="Scenario: Validar acesso autenticado a página Loan Application" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+       <option name="CUCUMBER_CORE_VERSION" value="5" />
+-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/Feature/Feature.feature" />
+-      <option name="GLUE" value="org.example" />
++      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/resources/forwardCarLoanApplication.feature" />
++      <option name="GLUE" value="org.examples org.example" />
+       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+       <module name="ForwardCarFernandaLucas" />
+-      <option name="NAME_FILTER" value="^Validar Botão Login$" />
+-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Validar Botão Login$&quot;" />
+-      <option name="SUGGESTED_NAME" value="Scenario: Validar Botão Login" />
++      <option name="NAME_FILTER" value="^Validar acesso autenticado a página Loan Application$" />
++      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Validar acesso autenticado a página Loan Application$&quot;" />
++      <option name="SUGGESTED_NAME" value="Scenario: Validar acesso autenticado a página Loan Application" />
+       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+       <extension name="coverage">
+         <pattern>
+@@ -75,15 +75,15 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="Scenario: Validar o Botao Loan Aplication tela Inicial" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
++    <configuration name="Scenario: Validar o campo Nome com Nomes dos respectivos carros" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+       <option name="CUCUMBER_CORE_VERSION" value="5" />
+       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/Feature/Feature.feature" />
+       <option name="GLUE" value="org.example" />
+       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+       <module name="ForwardCarFernandaLucas" />
+-      <option name="NAME_FILTER" value="^Validar o Botao Loan Aplication tela Inicial$" />
+-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Validar o Botao Loan Aplication tela Inicial$&quot;" />
+-      <option name="SUGGESTED_NAME" value="Scenario: Validar o Botao Loan Aplication tela Inicial" />
++      <option name="NAME_FILTER" value="^Validar o campo Nome com Nomes dos respectivos carros$" />
++      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Validar o campo Nome com Nomes dos respectivos carros$&quot;" />
++      <option name="SUGGESTED_NAME" value="Scenario: Validar o campo Nome com Nomes dos respectivos carros" />
+       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+       <extension name="coverage">
+         <pattern>
+@@ -95,15 +95,15 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="Scenario: Validar o campo Make e seus filtro." type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
++    <configuration name="Scenario: Validar o campo Search como Cor" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+       <option name="CUCUMBER_CORE_VERSION" value="5" />
+       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/Feature/Feature.feature" />
+       <option name="GLUE" value="org.example" />
+       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+       <module name="ForwardCarFernandaLucas" />
+-      <option name="NAME_FILTER" value="^Validar o campo Make e seus filtro\.$" />
+-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Validar o campo Make e seus filtro\.$&quot;" />
+-      <option name="SUGGESTED_NAME" value="Scenario: Validar o campo Make e seus filtro." />
++      <option name="NAME_FILTER" value="^Validar o campo Search como Cor$" />
++      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Validar o campo Search como Cor$&quot;" />
++      <option name="SUGGESTED_NAME" value="Scenario: Validar o campo Search como Cor" />
+       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+       <extension name="coverage">
+         <pattern>
+@@ -115,60 +115,50 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="Scenario: Validar o campo Nome com Nomes dos respectivos carros" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+-      <option name="CUCUMBER_CORE_VERSION" value="5" />
+-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/Feature/Feature.feature" />
+-      <option name="GLUE" value="org.example" />
+-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
++    <configuration name="Runner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="ForwardCarFernandaLucas" />
+-      <option name="NAME_FILTER" value="^Validar o campo Nome com Nomes dos respectivos carros$" />
+-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Validar o campo Nome com Nomes dos respectivos carros$&quot;" />
+-      <option name="SUGGESTED_NAME" value="Scenario: Validar o campo Nome com Nomes dos respectivos carros" />
+-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
++          <option name="PATTERN" value="org.example.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
++      <option name="PACKAGE_NAME" value="org.example" />
++      <option name="MAIN_CLASS_NAME" value="org.example.Runner" />
++      <option name="TEST_OBJECT" value="class" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="Scenario: Validar o campo Search como Cor" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+-      <option name="CUCUMBER_CORE_VERSION" value="5" />
+-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/Feature/Feature.feature" />
+-      <option name="GLUE" value="org.example" />
+-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
++    <configuration name="TestRunner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="ForwardCarFernandaLucas" />
+-      <option name="NAME_FILTER" value="^Validar o campo Search como Cor$" />
+-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Validar o campo Search como Cor$&quot;" />
+-      <option name="SUGGESTED_NAME" value="Scenario: Validar o campo Search como Cor" />
+-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
++          <option name="PATTERN" value="org.examples.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
++      <option name="PACKAGE_NAME" value="org.examples" />
++      <option name="MAIN_CLASS_NAME" value="org.examples.TestRunner" />
++      <option name="TEST_OBJECT" value="class" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+     <list>
++      <item itemvalue="Cucumber Java.Scenario: Validar acesso autenticado a página Loan Application" />
+       <item itemvalue="Cucumber Java.Scenario: Validar o campo Nome com Nomes dos respectivos carros" />
+       <item itemvalue="Cucumber Java.Scenario: Validar o campo Search como Cor" />
+-      <item itemvalue="Cucumber Java.Scenario: Validar Botão Login" />
+-      <item itemvalue="Cucumber Java.Scenario: Validar o Botao Loan Aplication tela Inicial" />
+-      <item itemvalue="Cucumber Java.Scenario: Validar o campo Make e seus filtro." />
++      <item itemvalue="JUnit.Runner" />
++      <item itemvalue="JUnit.TestRunner" />
+     </list>
+     <recent_temporary>
+       <list>
++        <item itemvalue="JUnit.Runner" />
++        <item itemvalue="JUnit.TestRunner" />
+         <item itemvalue="Cucumber Java.Scenario: Validar o campo Nome com Nomes dos respectivos carros" />
++        <item itemvalue="Cucumber Java.Scenario: Validar acesso autenticado a página Loan Application" />
+         <item itemvalue="Cucumber Java.Scenario: Validar o campo Search como Cor" />
+-        <item itemvalue="Cucumber Java.Scenario: Validar o Botao Loan Aplication tela Inicial" />
+-        <item itemvalue="Cucumber Java.Scenario: Validar Botão Login" />
+-        <item itemvalue="Cucumber Java.Scenario: Validar o campo Make e seus filtro." />
+       </list>
+     </recent_temporary>
+   </component>
