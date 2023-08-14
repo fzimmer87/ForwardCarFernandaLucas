@@ -23,7 +23,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
         glue = {
                 "org.examples"
         },
-        tags = "@%CT001"
+        tags = "@%CT008"
 )
 
 //Com a configuração feita, quando eu clicar pra executar com o testRunner

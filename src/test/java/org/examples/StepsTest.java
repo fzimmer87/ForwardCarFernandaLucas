@@ -10,14 +10,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.datatable.DataTable;
-import org.junit.Assert;
 import org.junit.BeforeClass;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -25,10 +20,12 @@ public class StepsTest {
     private ChromeDriver driver;
     private CommomSteps commomSteps;
 
+    //Tirar o BeforeClass
     @BeforeClass
     public static void configCaminhoChromeDriver() {
         System.out.println(ConstantesChromeDriver.OPCAO_CONFIG_CHROME_DRIVER);
         System.out.println(ConstantesChromeDriver.CAMINHO_CHROME_DRIVER);
+
     }
     @Before
     public void criarNovoNavegador() {
@@ -52,8 +49,8 @@ public class StepsTest {
     }
     @When("Eu clicar no botão {string} no cabeçalho da página")
     public void euClicarNoBotãoNoCabeçalhoDaPágina(String arg0) throws InterruptedException {
-        //RedirectLoanApplication redirectLoanApplication = new RedirectLoanApplication(driver);
-        //redirectLoanApplication.clicarBotaoLoanApplication();
+        RedirectLoanApplication redirectLoanApplication = new RedirectLoanApplication(driver);
+        redirectLoanApplication.clicarBotaoLoanApplication();
         Thread.sleep(5000);
     }
 
@@ -256,9 +253,11 @@ public class StepsTest {
     }
 
     @Then("Devo ser redirecionado para a página {string}")
-    public void devoSerRedirecionadoParaAPágina(String arg0) {
+    public void devoSerRedirecionadoParaAPágina(String arg0) throws InterruptedException {
         RedirectVinLookup redirectVinLookup = new RedirectVinLookup(driver);
         String urlAtual = redirectVinLookup.getUrlAtual();
+        Thread.sleep(5000);
+
 
         if (urlAtual.equals(ConstantesUrls.URL_PAGINA_VIN_LOOKUP)) {
             System.out.println(true);
@@ -305,25 +304,26 @@ public class StepsTest {
     //////////////////    CT008     ///////////////////
     ///////////////////////////////////////////////////
 
-    @Given("Que o usuário está na página VIN Lookup")
-    public void queOUsuárioEstáNaPáginaVINLookup() throws  InterruptedException {
-        driver.get(ConstantesUrls.URL_PAGINA_VIN_LOOKUP);    
+    @Given("Que o usuario está na página VIN Lookup")
+    public void queOUsuarioEstáNaPáginaVINLookup() throws InterruptedException {
+        driver.get(ConstantesUrls.URL_PAGINA_VIN_LOOKUP);
         Thread.sleep(5000);
     }
 
-    @When("inserir o codigo VIN <VIN> do carro <NomeCarro> no campo Vehicle History Report")
-    public void inserirOCodigoVINVINDoCarroNomeCarroNoCampoVehicleHistoryReport(String VIN) {
+    @When("inserir o codigo VIN {string} do carro {string} no campo Vehicle History Report")
+    public void inserirOCodigoVINDoCarroNoCampoVehicleHistoryReport(String VIN, String NomeCarro) {
         SearchPage searchPage = new SearchPage(driver);
         searchPage.enviarVinCampoInput(VIN);
     }
+
     @And("Pressionar o botao {string}")
     public void pressionarOBotao(String arg0) {
         SearchPage searchPage = new SearchPage(driver);
         searchPage.clickBtnVinLookup();
     }
 
-    @Then("O histórico do carro <NomeCarro> deve ser exibido")
-    public void oHistóricoDoCarroNomeCarroDeveSerExibido() {
+    @Then("O histórico do carro {string} deve ser exibido")
+    public void oHistóricoDoCarroNomeCarroDeveSerExibido(String NomeCarro) {
         SearchPage searchPage = new SearchPage(driver);
         searchPage.getValoresVinLookup();
     }
