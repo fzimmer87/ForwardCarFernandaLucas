@@ -1,4 +1,4 @@
-package Constantes;
+package constantes;
 
 public class ConstantesFordWardCar {
 

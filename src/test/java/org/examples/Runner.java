@@ -6,8 +6,14 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions (
-        features = "src/test/resources/Feature/Feature.feature",
+        features = {
+                "C:\\ProjetosBN\\Projetos individuais\\ProjetoGrupo\\ForwardCarFernandaLucas\\src\\test\\java\\resources\\Feature.feature",
+        },
+        glue = {
+                "org/examples"
+        },
         tags = "@CT002"
+
 )
 
 public class Runner {

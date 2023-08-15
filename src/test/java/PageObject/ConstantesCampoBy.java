@@ -1,6 +1,6 @@
-package PageObjects;
+package PageObject;
 
-import Constantes.ConstantesDeTexto;
+import constantes.ConstantesDeTexto;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
