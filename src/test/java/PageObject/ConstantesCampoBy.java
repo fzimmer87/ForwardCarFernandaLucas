@@ -1,6 +1,6 @@
-package PageObjects;
+package PageObject;
 
-import Constantes.ConstantesDeTexto;
+import constantes.ConstantesDeTexto;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +14,7 @@ public class ConstantesCampoBy {
     private By BotaoSearch = By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[2]/div[2]/a[2]/label/input");
     private By CampoDeRetornodosCarros = By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[3]/div[3]/div/div[1]");
     private By CampoCorViewsDetails = By.xpath("/html/body/div[4]/div/div/div/div[2]/table/tbody/tr[5]/td[2]");
-    private By BotaoViewsDetails = By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[3]/div[1]/div/div[3]/button[1]");
+    private By BotaoViewsDetails = By.xpath("//button[contains(@ng-click,'loadCarDetails(car.vin);')]");
     private By BotaoClear = By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[2]/div[2]/a[2]/button");
     private By BotaoDelete = By.cssSelector("body.ng-scope:nth-child(2) div.container.site:nth-child(1) div.ng-scope:nth-child(2) div.row.ng-scope div.ng-scope div.container div.row div.col-sm-9 div.col-sm-4.ng-scope:nth-child(1) div.panel.panel-primary.text-center div.panel-footer > button.center-block.btn.btn-primary.btn-block.btn-xs:nth-child(3)");
     private By BotaoAddCar = By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/button");
@@ -31,24 +31,31 @@ public class ConstantesCampoBy {
     private By BotaoCampoSearch = By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[2]/div[2]/a[2]/label/input");
     private By BotaoGuest = By.xpath("/html/body/div[1]/div[1]/div/div/div[2]/ul/li[5]/a/span[1]");
     private By BotaoMake = By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[2]/div[3]/a[2]");
-    private By BotaoModelRLXAWD= By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[2]/div[4]/a[3]");
-    private By BotaoLogin= By.xpath("/html/body/div[1]/div[1]/div/div/div[2]/ul/li[5]/ul/li[1]/a");
+    private By BotaoModelRLXAWD = By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[2]/div[4]/a[3]");
+    private By BotaoLogin = By.xpath("/html/body/div[1]/div[1]/div/div/div[2]/ul/li[5]/ul/li[1]/a");
     private By CampoUsarnameLogin = By.xpath("//*[@id='login-form']/fieldset/div[1]/input");
     private By CampoPassowordLogin = By.xpath("//*[@id='login-form']/fieldset/div[2]/input");
     private By BotaoSignInPagLogin = By.xpath("//*[@id='login-form']/fieldset/div[3]/button");
     private By BotaoGuestComMeunome = By.xpath("/html/body/div[1]/div[1]/div/div/div[2]/ul/li[5]/a/span[1]");
     private By BotaoLoanStatus = By.xpath("/html/body/div[1]/div[1]/div/div/div[2]/ul/li[5]/ul/li[3]/a");
-    private By BotaoRegister= By.xpath("/html/body/div[1]/div[1]/div/div/div[2]/ul/li[5]/ul/li[2]/a");
-    private By Campoprice= By.className("panel-heading");
+    private By BotaoRegister = By.xpath("/html/body/div[1]/div[1]/div/div/div[2]/ul/li[5]/ul/li[2]/a");
+    private By Campoprice = By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[3]/div[1]/div/div[1]");
+    private By CampoFirstName = By.xpath("//*[@id=\"registration-form\"]/fieldset/div[1]/input");
+    private By CampoLastName = By.xpath("//*[@id=\"registration-form\"]/fieldset/div[2]/input");
+    private By CampoUsarname = By.xpath("//*[@id=\"registration-form\"]/fieldset/div[3]/input");
+    private By CampoPassword = By.xpath("//*[@id=\"registration-form\"]/fieldset/div[4]/input");
+    private By BotaoRegisterLogin = By.xpath("//*[@id=\"registration-form\"]/fieldset/div[5]/button");
+    private By CampoResultadoBusca = By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[3]");
+    private By CampoYearTelaPesquisa = By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[3]/div[1]/div/div[2]/p[1]");
+    private By CampoCartaoCarro = By.xpath("//div[contains(@class, 'panel panel-primary text-center')]");
 
 
     public ConstantesCampoBy(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void resultadoCor() {
-        Assert.assertEquals(driver.findElement (CampoCorViewsDetails).getText(),driver.findElement (BotaoCampoSearch).getText());
-    }
+
+
     public boolean AcharElementoPainel() {
         this.driver.findElement(Campoprice);
         List<WebElement> CarrosdaLista = driver.findElements(By.className("panel-heading"));
@@ -104,47 +111,64 @@ public class ConstantesCampoBy {
         this.driver.findElement(BotaoPrice).sendKeys("0");
     }
 
-    public boolean TelaNomedosCarros() {
-        return this.driver.findElement(TelacomNomedeTodosCarros).isDisplayed();
-    }
 
     public boolean TelaAdminIsDisplayed() {
         return this.driver.findElement(TelaAdmin).isDisplayed();
     }
-    public void ClicarBotaoViewsDetaisls(){
-        driver.findElement(BotaoViewsDetails).click();
-        driver.findElement(BotaoOkViewsDetaisls).click();
-    }
-    public void ClicarBotaoOkCampoViewsDetails(){
-        driver.findElement(BotaoOkViewsDetaisls).click();
-    }
-    public void ClicarBotaoCadeado(){
+
+    public void ClicarBotaoCadeado() {
         driver.findElement(BotaoCadeado).click();
     }
-    public boolean AcharMensagemCarDeletedNaTela(){
+
+    public boolean AcharMensagemCarDeletedNaTela() {
         return this.driver.findElement(MensagemCarDeleted).isDisplayed();
     }
-    public void DigitarCorEncontradanaTabela( String corAtual){
+
+    public void DigitarCorEncontradanaTabela(String corAtual) {
         WebElement coratual = driver.findElement(BotaoCampoSearch);
         coratual.clear();
         coratual.sendKeys(corAtual);
     }
-    public void ClicarNoBotaoGuest(){
+    public void ClicarBotaoViewsDetaisls(String corDigitada)throws InterruptedException {
+        List<WebElement>campoViewDetaisls = driver.findElements(CampoCartaoCarro);
+        for (WebElement acharCores : campoViewDetaisls){
+            driver.findElement(BotaoViewsDetails).click();
+            Thread.sleep(3000);
+            String texto = driver.findElement(CampoCorViewsDetails).getText();
+            Thread.sleep(3000);
+            if (texto.equals(corDigitada) ) {
+                Thread.sleep(3000);
+                clicarBotaoOkViewsDetails();
+                System.out.println("true");
+            }
+        }
+        System.out.println("false");
+    }
+    public void clicarBotaoOkViewsDetails(){
+        this.driver.findElement(BotaoOkViewsDetaisls).click();
+    }
+
+    public void ClicarNoBotaoGuest() {
         this.driver.findElement(BotaoGuest).click();
     }
-    public void ClicarNoBortaoAcura(){
+
+    public void ClicarNoBortaoAcura() {
         this.driver.findElement(BotaoMake).click();
     }
-    public void ClicarNoBotaoModelRLXAWD(){
+
+    public void ClicarNoBotaoModelRLXAWD() {
         this.driver.findElement(BotaoModelRLXAWD).click();
     }
-    public void ClicarNoCampoSearch(){
+
+    public void ClicarNoCampoSearch() {
         this.driver.findElement(BotaoCampoSearch).click();
     }
-    public void ClicarBotaoLogin(){
+
+    public void ClicarBotaoLogin() {
         this.driver.findElement(BotaoLogin).click();
     }
-    public void RealizarLoginComUsarnameSenha()throws InterruptedException{
+
+    public void RealizarLoginComUsarnameSenha() throws InterruptedException {
         Thread.sleep(5000);
         this.driver.findElement(CampoUsarnameLogin).click();
         Thread.sleep(5000);
@@ -156,16 +180,54 @@ public class ConstantesCampoBy {
         Thread.sleep(5000);
         this.driver.findElement(BotaoSignInPagLogin).click();
     }
-    public void ClicarNoCampoGuestLogado(){
+
+    public void ClicarNoCampoGuestLogado() {
         this.driver.findElement(BotaoGuestComMeunome).click();
     }
-    public void ClicarNoBotaoLoanStatus(){
+
+    public void ClicarNoBotaoLoanStatus() {
         this.driver.findElement(BotaoLoanStatus).click();
     }
-    public void ClicarBotaoRegister(){
+
+    public void ClicarBotaoRegister() {
         this.driver.findElement(BotaoRegister).click();
     }
+
+    public void preencherFirstName(String firstName) {
+        this.driver.findElement(CampoFirstName).sendKeys(firstName);
+    }
+    public void preencherLastName(String lastName) {
+        this.driver.findElement(CampoLastName).sendKeys(lastName);
+    }
+    public void preencherUsarname(String username) {
+        this.driver.findElement(CampoUsarname).sendKeys(username);
+    }
+
+    public void preencherPassword(String password) {
+        this.driver.findElement(CampoPassword).sendKeys(password);
+    }
+    public void clicarBotaoRegister(){
+        this.driver.findElement(BotaoRegisterLogin).click();
+    }
+    public void validarCampoMakeAcuraRLXAWD(){
+        String acharTextoNaTela = driver.findElement(CampoResultadoBusca).getText();
+        Assert.assertEquals(acharTextoNaTela, "Acura RLX-AWD");
+    }
+    public void digitarAnoDosCarros(String anoDigitado) {
+        WebElement anodigitado = driver.findElement(BotaoCampoSearch);
+        anodigitado.clear();
+        anodigitado.sendKeys(anoDigitado);
+
+    }
+    public boolean pegarTextoDoCampoYear(String anoCarro){
+        String texto = this.driver.findElement(CampoYearTelaPesquisa).getText();
+        if (texto.contains(anoCarro)){
+            return true;
+        }
+        return false;
+    }
 }
+
 
 
 

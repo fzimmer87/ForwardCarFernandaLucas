@@ -1,14 +1,14 @@
-package org.example;
+package org.examples;
+
+
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.pt.*;
-import Constantes.ConstanteChromeDriver;
-import Constantes.ConstantesFordWardCar;
-import PageObjects.ConstantesCampoBy;
-import org.junit.BeforeClass;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import constantes.ConstanteChromeDriver;
+import constantes.ConstantesFordWardCar;
+import PageObject.ConstantesCampoBy;
+import org.junit.Assert;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.List;
 import java.util.Map;
@@ -17,17 +17,13 @@ import java.util.Map;
 
 public class StepsForwardCar {
     private ChromeDriver driver;
+    private ConstantesCampoBy constantesCampoBy;
 
-
-
-    @BeforeClass
-    public void AbrirNavegador() {
-        System.setProperty(ConstanteChromeDriver.CONST_CHROME_DRIVER, ConstanteChromeDriver.CONST_CAMINHO_CHROME_DRIVER);
-
-    }
     @Before
     public void IniciarDriverAntesdeCadaTeste(){
+        System.setProperty(ConstanteChromeDriver.CONST_CHROME_DRIVER, ConstanteChromeDriver.CONST_CAMINHO_CHROME_DRIVER);
         driver = new ChromeDriver();
+        constantesCampoBy = new ConstantesCampoBy(driver);
     }
 
     @After
@@ -35,11 +31,10 @@ public class StepsForwardCar {
         driver.quit();
     }
 
-    ConstantesCampoBy constantesCampoBy = new ConstantesCampoBy(driver);
 
     @Dado("que estou na página da Forward Car")
     public void queEstouNaPaginaDaForwardCar() throws InterruptedException {
-       driver.get(ConstantesFordWardCar.URL_PAGINA_INICIAL);
+        driver.get(ConstantesFordWardCar.URL_PAGINA_INICIAL);
         Thread.sleep(3000);
     }
     @Dado("que estou na pagina inventory da Forward Car")
@@ -71,19 +66,10 @@ public class StepsForwardCar {
         for (String novaCor: coresDigitadas) {
             constantesCampoBy.DigitarCorEncontradanaTabela(novaCor);
             Thread.sleep(3000);
-
-            List<WebElement> botoesViewsDetails = driver.findElements(By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[3]/div/div/div[3]/button[1]"));
-            constantesCampoBy.ClicarBotaoViewsDetaisls(); //modificar
-
-            for (WebElement botaoViewDetail : botoesViewsDetails){
-                botaoViewDetail.click();
-                Thread.sleep(3000);
-                constantesCampoBy.resultadoCor();
-                constantesCampoBy.ClicarBotaoOkCampoViewsDetails();
-                Thread.sleep(3000);
-            }
-            constantesCampoBy.ClicarBotaoClear();
+            constantesCampoBy.ClicarBotaoViewsDetaisls(novaCor);
+            Thread.sleep(3000);
         }
+        constantesCampoBy.ClicarBotaoClear();
     }
 
     @Entao("aparecem modelos de carro da cor digitada")
@@ -107,7 +93,7 @@ public class StepsForwardCar {
     public void clicoEmDelete() throws InterruptedException{
         Thread.sleep(3000);
         constantesCampoBy.ClicarBotaoDelete();
-        Thread.sleep(3000);
+
     }
 
 
@@ -154,8 +140,6 @@ public class StepsForwardCar {
         System.out.println(true);
     }
 
-
-
     @E("clico em Register")
     public void clicoEmRegister() throws InterruptedException {
         constantesCampoBy.ClicarBotaoRegister();
@@ -164,26 +148,30 @@ public class StepsForwardCar {
 
     @Quando("digito campo FIRST NAME, LAST NAME, USARNAME, PASSWORD com dados")
     public void digitoCampo(DataTable dataTable) throws InterruptedException {
-        List<Map<String,String>>rows= dataTable.asMaps(String.class,String.class);
+        List<Map<String, String>> registrarUsuario = dataTable.asMaps(String.class, String.class);
 
-        for (Map<String, String> columns : rows) {
-
+        for (Map<String, String> NovoUsuario : registrarUsuario) {
+            String firstName = NovoUsuario.get("first name");
+            String lastName = NovoUsuario.get("last name");
+            String username = NovoUsuario.get("username");
+            String password = NovoUsuario.get("password");
+            constantesCampoBy.preencherFirstName(firstName);
+            Thread.sleep(5000);
+            constantesCampoBy.preencherLastName(lastName);
+            Thread.sleep(5000);
+            constantesCampoBy.preencherUsarname(username);
+            Thread.sleep(5000);
+            constantesCampoBy.preencherPassword(password);
+            constantesCampoBy.clicarBotaoRegister();
         }
-        driver.findElement(By.cssSelector(".btn")).click();
-        Thread.sleep(3000);
     }
-
 
     @Entao("só consigo realizar o Registro com todos os campos preenchidos")
     public void soConsigoRealizarORegistroComTodosOsCamposPreenchidos()throws InterruptedException {
         Thread.sleep(3000);
-        String URL_nova = driver.getCurrentUrl();
-        if (URL_nova == ConstantesFordWardCar.URL_PAGINA_LOGIN) {
-            System.out.println(false);
-        } else {
-            System.out.println(true);
-        }
+        Assert.assertEquals(driver.getCurrentUrl(),ConstantesFordWardCar.URL_PAGINA_LOGIN);
     }
+
 
     @E("clico no botao Guest")
     public void clicoNoBotaoGuest() throws InterruptedException{
@@ -206,21 +194,19 @@ public class StepsForwardCar {
     @Entao("aparecem modelos de carro Acura RLX-AWD")
     public void aparecemModelosDeCarroAcuraRLXAWD() throws InterruptedException {
         Thread.sleep(3000);
-        constantesCampoBy.TelaNomedosCarros();
-
+        constantesCampoBy.validarCampoMakeAcuraRLXAWD();
     }
 
     @E("clico campo busca search")
     public void clicoCampoBuscaSearch()throws InterruptedException {
         Thread.sleep(3000);
         constantesCampoBy.ClicarNoCampoSearch();
-
     }
 
 
     @E("realizo meu login com Usarname e Senha")
     public void realizoMeuLoginComUsarnameESenha() throws InterruptedException{
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         constantesCampoBy.RealizarLoginComUsarnameSenha();
     }
 
@@ -248,20 +234,23 @@ public class StepsForwardCar {
     }
 
     @Quando("digito o ano de algum modelo de carro")
-    public void digitoOAnoDeAlgumModeloDeCarro(DataTable dataTable) {
+    public void digitoOAnoDeAlgumModeloDeCarro(DataTable dataTable)throws InterruptedException {
         List<String> anoDigitado = dataTable.asList(String.class);
-
-
+        for (String novoAno : anoDigitado) {
+            constantesCampoBy.digitarAnoDosCarros(novoAno);
+            Thread.sleep(3000);
+            Assert.assertTrue(constantesCampoBy.pegarTextoDoCampoYear(novoAno));
+        }
     }
     @E("clico em Guest")
-    public void clicoEmGuest() {
-        driver.findElement(By.xpath("/html/body/div[1]/div[1]/div/div/div[2]/ul/li[5]/a")).click();
-
+    public void clicoEmGuest()throws InterruptedException{
+        constantesCampoBy.ClicarNoBotaoGuest();
+        Thread.sleep(3000);
     }
 
     @E("clico em Login")
     public void clicoEmLogin() {
-        driver.findElement(By.xpath("/html/body/div[1]/div[1]/div/div/div[2]/ul/li[5]/ul/li[1]/a"));
+        constantesCampoBy.ClicarBotaoLogin();
     }
 
     @Quando("preencho usarname e passoword com dados já cadastrado no Register")
@@ -271,13 +260,22 @@ public class StepsForwardCar {
 
     @Entao("sistema me encaminha para pagina principal da Forward Car")
     public void sistemaMeEncaminhaParaPaginaPrincipalDaForwardCar() {
-        driver.quit();
+        String URL_nova = driver.getCurrentUrl();
+        if (URL_nova == ConstantesFordWardCar.URL_PAGINA_INICIAL) {
+            System.out.println(false);
+        } else {
+            System.out.println(true);
+        }
     }
 
     @Dado("que estou na pagina login da ForwardCar")
     public void queEstouNaPaginaLoginDaForwardCar() throws InterruptedException{
         driver.get(ConstantesFordWardCar.URL_PAGINA_LOGIN);
         Thread.sleep(3000);
+    }
+
+    @Entao("aparecem modelos do ano que digitei")
+    public void aparecemModelosDoAnoQueDigitei() {
     }
 }
 

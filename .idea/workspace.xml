@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62fb1d79-b8e4-4ca6-b91e-fa13b6a2b51c" name="Changes" comment="Testes 6,7,8,9 e 10 adicionados" />
+    <list default="true" id="62fb1d79-b8e4-4ca6-b91e-fa13b6a2b51c" name="Changes" comment="Testes 6,7,8,9 e 10 adicionados">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/examples/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Constantes/ConstanteChromeDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/constantes/ConstanteChromeDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Constantes/ConstantesDeTexto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/constantes/ConstantesDeTexto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Constantes/ConstantesFordWardCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/constantes/ConstantesFordWardCar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/ConstantesCampoBy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObject/ConstantesCampoBy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/examples/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/examples/Runner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/examples/StepsForwardCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/examples/StepsForwardCar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/Feature/Feature.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/resources/Feature.feature" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,33 +58,15 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\ProjetosBN\Projetos individuais\ProjetoGrupo\ForwardCarFernandaLucas\src\test\java\resources" />
+      <recent name="C:\ProjetosBN\Projetos individuais\ProjetoGrupo\ForwardCarFernandaLucas\src\test\resources" />
       <recent name="C:\ProjetosBN\Projetos individuais\ProjetoGrupo\ForwardCarFernandaLucas\src\test\java\Feature" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.example" />
     </key>
   </component>
-  <component name="RunManager" selected="Cucumber Java.Scenario: Validar o campo Nome com Nomes dos respectivos carros">
-    <configuration name="Scenario: Validar Botão Login" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/Feature/Feature.feature" />
-      <option name="GLUE" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="ForwardCarFernandaLucas" />
-      <option name="NAME_FILTER" value="^Validar Botão Login$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Validar Botão Login$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Validar Botão Login" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Cucumber Java.Scenario: Validar o campo Nome com Nomes dos respectivos carros (1)">
     <configuration name="Scenario: Validar o Botao Loan Aplication tela Inicial" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/Feature/Feature.feature" />
@@ -95,30 +87,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Validar o campo Make e seus filtro." type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Validar o campo Nome com Nomes dos respectivos carros (1)" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/Feature/Feature.feature" />
-      <option name="GLUE" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="ForwardCarFernandaLucas" />
-      <option name="NAME_FILTER" value="^Validar o campo Make e seus filtro\.$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Validar o campo Make e seus filtro\.$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Validar o campo Make e seus filtro." />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Scenario: Validar o campo Nome com Nomes dos respectivos carros" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/Feature/Feature.feature" />
-      <option name="GLUE" value="org.example" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/resources/Feature.feature" />
+      <option name="GLUE" value="org" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="ForwardCarFernandaLucas" />
       <option name="NAME_FILTER" value="^Validar o campo Nome com Nomes dos respectivos carros$" />
@@ -135,10 +107,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Validar o campo Search como Cor" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Validar o campo Search como Cor (1)" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/Feature/Feature.feature" />
-      <option name="GLUE" value="org.example" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/resources/Feature.feature" />
+      <option name="GLUE" value="org" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="ForwardCarFernandaLucas" />
       <option name="NAME_FILTER" value="^Validar o campo Search como Cor$" />
@@ -155,20 +127,61 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Runner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ForwardCarFernandaLucas" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.examples.examples.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.examples.examples" />
+      <option name="MAIN_CLASS_NAME" value="org.examples.examples.Runner" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Runner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ForwardCarFernandaLucas" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.examples.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.examples" />
+      <option name="MAIN_CLASS_NAME" value="org.examples.Runner" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Video1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Video1" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Cucumber Java.Scenario: Validar o campo Nome com Nomes dos respectivos carros" />
-      <item itemvalue="Cucumber Java.Scenario: Validar o campo Search como Cor" />
-      <item itemvalue="Cucumber Java.Scenario: Validar Botão Login" />
+      <item itemvalue="Cucumber Java.Scenario: Validar o campo Nome com Nomes dos respectivos carros (1)" />
+      <item itemvalue="Cucumber Java.Scenario: Validar o campo Search como Cor (1)" />
       <item itemvalue="Cucumber Java.Scenario: Validar o Botao Loan Aplication tela Inicial" />
-      <item itemvalue="Cucumber Java.Scenario: Validar o campo Make e seus filtro." />
+      <item itemvalue="JUnit.Runner" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Cucumber Java.Scenario: Validar o campo Nome com Nomes dos respectivos carros" />
-        <item itemvalue="Cucumber Java.Scenario: Validar o campo Search como Cor" />
+        <item itemvalue="Cucumber Java.Scenario: Validar o campo Search como Cor (1)" />
+        <item itemvalue="Cucumber Java.Scenario: Validar o campo Nome com Nomes dos respectivos carros (1)" />
+        <item itemvalue="JUnit.Runner" />
         <item itemvalue="Cucumber Java.Scenario: Validar o Botao Loan Aplication tela Inicial" />
-        <item itemvalue="Cucumber Java.Scenario: Validar Botão Login" />
-        <item itemvalue="Cucumber Java.Scenario: Validar o campo Make e seus filtro." />
       </list>
     </recent_temporary>
   </component>
@@ -287,6 +300,16 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="6" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/examples/StepsForwardCar.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/PageObject/ConstantesCampoBy.java</url>
+          <line>132</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

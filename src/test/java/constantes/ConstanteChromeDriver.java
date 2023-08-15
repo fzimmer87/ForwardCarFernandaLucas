@@ -1,4 +1,4 @@
-package Constantes;
+package constantes;
 
 public class ConstanteChromeDriver {
     public final static String CONST_CHROME_DRIVER="webdriver.chrome.driver";

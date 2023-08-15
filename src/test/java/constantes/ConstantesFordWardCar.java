@@ -1,4 +1,4 @@
-package Constantes;
+package constantes;
 
 public class ConstantesFordWardCar {
 
@@ -6,8 +6,6 @@ public class ConstantesFordWardCar {
         public final static String URL_PAGINA_LOGIN="http://localhost:3434/cars-app/#/login";
         public final static String URL_PAGINA_INVETORY="http://localhost:3434/cars-app/#/inventory";
         public final static String URL_PAGINA_LOAN_STATUS="http://localhost:3434/cars-app/#/loanStatus";
-
-
 
     }
 

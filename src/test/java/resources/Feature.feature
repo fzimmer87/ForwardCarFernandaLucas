@@ -2,7 +2,7 @@
 
 Funcionalidade: Testar página da ForwardCar
 
-  @%CT001
+  @CT001
   Cenario: Validar o campo Nome com Nomes dos respectivos carros
     Dado que estou na página da Forward Car
     Quando clico em search
@@ -15,11 +15,11 @@ Funcionalidade: Testar página da ForwardCar
     Quando clico em search
     E digito
 
-      | RED    |
-      | BLUE   |
-      | GREEN  |
-      | BLACK  |
-      | SILVER |
+      | Red    |
+      | Blue   |
+      | Green  |
+      | Black  |
+      | Silver |
 
     Entao aparecem modelos de carro da cor digitada
 
@@ -56,11 +56,10 @@ Funcionalidade: Testar página da ForwardCar
     E clico no botao Guest
     E clico em Register
     Quando digito campo FIRST NAME, LAST NAME, USARNAME, PASSWORD com dados
-      | FIRST NAME |LAST NAME|USARNAME |PASSWORD|
+      | first name |last name|username |password|
       | Fernanda   | Zimmer  | zimmerf | 852456 |
-      | Fernanda   |         | zimmerf | 123456 |
-      |            | Zimmer  | zimmerf | 123456 |
     Entao só consigo realizar o Registro com todos os campos preenchidos
+
 
   @CT007
   Cenario: Validar Botão Login
@@ -83,13 +82,14 @@ Funcionalidade: Testar página da ForwardCar
     Dado que estou na pagina inventory da Forward Car
     E clico campo busca search
     Quando digito o ano de algum modelo de carro
-      | ANO  |
+
       | 2008 |
       | 2009 |
       | 2010 |
       | 2011 |
       | 2012 |
       | 2013 |
+    Entao aparecem modelos do ano que digitei
 
   @CT010
   Cenario: Validar o Botao Loan Aplication tela Inicial
