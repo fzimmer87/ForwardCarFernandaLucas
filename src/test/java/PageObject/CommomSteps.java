@@ -1,6 +1,6 @@
 package PageObject;
 
-import constantes.ConstantesUrls;
+import Constantes.ConstantesUrls;
 import io.cucumber.java.en.Given;
 import org.openqa.selenium.chrome.ChromeDriver;
 

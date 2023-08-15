@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62fb1d79-b8e4-4ca6-b91e-fa13b6a2b51c" name="Changes" comment="Testes 6,7,8,9 e 10 adicionados">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/examples/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Constantes/ConstanteChromeDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/constantes/ConstanteChromeDriver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Constantes/ConstantesDeTexto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/constantes/ConstantesDeTexto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Constantes/ConstantesFordWardCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/constantes/ConstantesFordWardCar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/ConstantesCampoBy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObject/ConstantesCampoBy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/examples/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/examples/Runner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/examples/StepsForwardCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/examples/StepsForwardCar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/Feature/Feature.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/resources/Feature.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Constantes/ConstantesUrls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Constantes/ConstantesUrls.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PageObject/CommomSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObject/CommomSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PageObject/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObject/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PageObject/SearchPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObject/SearchPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +63,7 @@
       <recent name="org.example" />
     </key>
   </component>
-  <component name="RunManager" selected="Cucumber Java.Scenario: Validar o campo Nome com Nomes dos respectivos carros (1)">
+  <component name="RunManager" selected="JUnit.Runner (1)">
     <configuration name="Scenario: Validar o Botao Loan Aplication tela Inicial" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/Feature/Feature.feature" />
@@ -127,6 +124,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Runner (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Video1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.examples.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.examples" />
+      <option name="MAIN_CLASS_NAME" value="org.examples.Runner" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Runner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ForwardCarFernandaLucas" />
       <extension name="coverage">
@@ -157,27 +169,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="Video1" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="Video1" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Cucumber Java.Scenario: Validar o campo Nome com Nomes dos respectivos carros (1)" />
       <item itemvalue="Cucumber Java.Scenario: Validar o campo Search como Cor (1)" />
       <item itemvalue="Cucumber Java.Scenario: Validar o Botao Loan Aplication tela Inicial" />
+      <item itemvalue="JUnit.Runner (1)" />
       <item itemvalue="JUnit.Runner" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Runner (1)" />
         <item itemvalue="Cucumber Java.Scenario: Validar o campo Search como Cor (1)" />
         <item itemvalue="Cucumber Java.Scenario: Validar o campo Nome com Nomes dos respectivos carros (1)" />
         <item itemvalue="JUnit.Runner" />

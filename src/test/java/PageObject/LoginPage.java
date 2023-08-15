@@ -1,6 +1,6 @@
 package PageObject;
 
-import constantes.ConstantesUrls;
+import Constantes.ConstantesUrls;
 import org.openqa.selenium.By;
 import org.openqa.selenium.UsernameAndPassword;
 import org.openqa.selenium.WebDriver;

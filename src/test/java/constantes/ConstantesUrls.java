@@ -1,4 +1,4 @@
-package constantes;
+package Constantes;
 
 public class ConstantesUrls {
     public final static String URL_PAGINA_PRINCIPAL = "http://localhost:3434/cars-app/#/home";
