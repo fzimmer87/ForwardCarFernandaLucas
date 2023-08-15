@@ -9,6 +9,7 @@ import Constantes.ConstanteChromeDriver;
 import Constantes.ConstantesFordWardCar;
 import PageObjects.ConstantesCampoBy;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.List;
 import java.util.Map;
@@ -66,9 +67,11 @@ public class StepsForwardCar {
         List<String> coresDigitadas = dataTable.asList(String.class);
         for (String novaCor: coresDigitadas) {
             constantesCampoBy.DigitarCorEncontradanaTabela(novaCor);
-            Thread.sleep(4000);
-            constantesCampoBy.ClicarBotaoClear();
+            Thread.sleep(3000);
+            constantesCampoBy.ClicarBotaoViewsDetaisls(novaCor);
+            Thread.sleep(3000);
         }
+        constantesCampoBy.ClicarBotaoClear();
     }
 
     @Entao("aparecem modelos de carro da cor digitada")
@@ -92,7 +95,7 @@ public class StepsForwardCar {
     public void clicoEmDelete() throws InterruptedException{
         Thread.sleep(3000);
         constantesCampoBy.ClicarBotaoDelete();
-        Thread.sleep(3000);
+
     }
 
 
@@ -139,8 +142,6 @@ public class StepsForwardCar {
         System.out.println(true);
     }
 
-
-
     @E("clico em Register")
     public void clicoEmRegister() throws InterruptedException {
         constantesCampoBy.ClicarBotaoRegister();
@@ -171,12 +172,7 @@ public class StepsForwardCar {
     public void soConsigoRealizarORegistroComTodosOsCamposPreenchidos()throws InterruptedException {
         Thread.sleep(3000);
         Assert.assertEquals(driver.getCurrentUrl(),ConstantesFordWardCar.URL_PAGINA_LOGIN);
-//        String URL_nova = driver.getCurrentUrl();
-//        if (URL_nova == ConstantesFordWardCar.URL_PAGINA_LOGIN) {
-//            System.out.println(false);
-//        } else {
-//            System.out.println(true);
-        }
+    }
 
 
     @E("clico no botao Guest")
@@ -245,12 +241,13 @@ public class StepsForwardCar {
         for (String novoAno : anoDigitado) {
             constantesCampoBy.digitarAnoDosCarros(novoAno);
             Thread.sleep(3000);
-            constantesCampoBy.ClicarBotaoClear();
+            Assert.assertTrue(constantesCampoBy.pegarTextoDoCampoYear(novoAno));
         }
     }
     @E("clico em Guest")
     public void clicoEmGuest()throws InterruptedException{
         constantesCampoBy.ClicarNoBotaoGuest();
+        Thread.sleep(3000);
     }
 
     @E("clico em Login")
@@ -281,7 +278,6 @@ public class StepsForwardCar {
 
     @Entao("aparecem modelos do ano que digitei")
     public void aparecemModelosDoAnoQueDigitei() {
-
     }
 }
 

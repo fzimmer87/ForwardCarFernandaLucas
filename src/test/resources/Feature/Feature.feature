@@ -15,11 +15,11 @@ Funcionalidade: Testar página da ForwardCar
     Quando clico em search
     E digito
 
-      | RED    |
-      | BLUE   |
-      | GREEN  |
-      | BLACK  |
-      | SILVER |
+      | Red    |
+      | Blue   |
+      | Green  |
+      | Black  |
+      | Silver |
 
     Entao aparecem modelos de carro da cor digitada
 
@@ -82,7 +82,7 @@ Funcionalidade: Testar página da ForwardCar
     Dado que estou na pagina inventory da Forward Car
     E clico campo busca search
     Quando digito o ano de algum modelo de carro
-      | ANO  |
+
       | 2008 |
       | 2009 |
       | 2010 |

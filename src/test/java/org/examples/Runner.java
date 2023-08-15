@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions (
         features = "src/test/resources/Feature/Feature.feature",
-        tags = "@CT006"
+        tags = "@CT002"
 )
 
 public class Runner {

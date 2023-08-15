@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="62fb1d79-b8e4-4ca6-b91e-fa13b6a2b51c" name="Changes" comment="Testes 6,7,8,9 e 10 adicionados">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Constantes/ConstantesFordWardCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Constantes/ConstantesFordWardCar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/PageObjects/ConstantesCampoBy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObjects/ConstantesCampoBy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/Runner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/StepsForwardCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/StepsForwardCar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/examples/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/examples/Runner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/examples/StepsForwardCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/examples/StepsForwardCar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/Feature/Feature.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Feature/Feature.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -146,12 +144,12 @@
       <module name="ForwardCarFernandaLucas" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.examples.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="org.example.Runner" />
+      <option name="MAIN_CLASS_NAME" value="org.examples.Runner" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -289,6 +287,16 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="6" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/org/examples/StepsForwardCar.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/PageObjects/ConstantesCampoBy.java</url>
+          <line>132</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
