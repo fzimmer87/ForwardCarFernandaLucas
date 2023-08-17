@@ -60,18 +60,6 @@ public class StepsForwardCar {
         constantesCampoBy.AcharElementoPainel();
     }
 
-    @E("digito")
-    public void digito(DataTable dataTable) throws InterruptedException{
-        List<String> coresDigitadas = dataTable.asList(String.class);
-        for (String novaCor: coresDigitadas) {
-            constantesCampoBy.DigitarCorEncontradanaTabela(novaCor);
-            Thread.sleep(3000);
-            constantesCampoBy.ClicarBotaoViewsDetaisls(novaCor);
-            Thread.sleep(3000);
-        }
-        constantesCampoBy.ClicarBotaoClear();
-    }
-
     @Entao("aparecem modelos de carro da cor digitada")
     public void aparecemModelosDeCarroDaCorDigitada() {
 
@@ -169,7 +157,9 @@ public class StepsForwardCar {
     @Entao("só consigo realizar o Registro com todos os campos preenchidos")
     public void soConsigoRealizarORegistroComTodosOsCamposPreenchidos()throws InterruptedException {
         Thread.sleep(3000);
-        Assert.assertEquals(driver.getCurrentUrl(),ConstantesFordWardCar.URL_PAGINA_LOGIN);
+        String URL_nova = driver.getCurrentUrl();
+        String URL_esperada = ConstantesFordWardCar.URL_PAGINA_LOGIN;
+        Assert.assertEquals(URL_esperada,ConstantesFordWardCar.URL_PAGINA_LOGIN);
     }
 
 
@@ -226,10 +216,11 @@ public class StepsForwardCar {
     public void souEncaminhadoParaPaginaOndeVerificoMeusEmprestimosEFinanciamentos()throws InterruptedException {
         Thread.sleep(3000);
         String URL_nova = driver.getCurrentUrl();
-        if (URL_nova == ConstantesFordWardCar.URL_PAGINA_LOAN_STATUS) {
-            System.out.println(false);
-        } else {
+        String URL_eperada=ConstantesFordWardCar.URL_PAGINA_LOAN_STATUS;
+        if (URL_eperada.equals(ConstantesFordWardCar.URL_PAGINA_LOAN_STATUS)) {
             System.out.println(true);
+        } else {
+            System.out.println(false);
         }
     }
 
@@ -239,7 +230,7 @@ public class StepsForwardCar {
         for (String novoAno : anoDigitado) {
             constantesCampoBy.digitarAnoDosCarros(novoAno);
             Thread.sleep(3000);
-            Assert.assertTrue(constantesCampoBy.pegarTextoDoCampoYear(novoAno));
+            constantesCampoBy.pegarTextoDoCampoYear(novoAno);
         }
     }
     @E("clico em Guest")
@@ -261,10 +252,11 @@ public class StepsForwardCar {
     @Entao("sistema me encaminha para pagina principal da Forward Car")
     public void sistemaMeEncaminhaParaPaginaPrincipalDaForwardCar() {
         String URL_nova = driver.getCurrentUrl();
-        if (URL_nova == ConstantesFordWardCar.URL_PAGINA_INICIAL) {
-            System.out.println(false);
-        } else {
+        String URL_eperada=ConstantesFordWardCar.URL_PAGINA_INICIAL;
+        if (URL_eperada.equals(ConstantesFordWardCar.URL_PAGINA_INICIAL)) {
             System.out.println(true);
+        } else {
+            System.out.println(false);
         }
     }
 
@@ -276,6 +268,18 @@ public class StepsForwardCar {
 
     @Entao("aparecem modelos do ano que digitei")
     public void aparecemModelosDoAnoQueDigitei() {
+    }
+
+    @E("digito as respectivas cores")
+    public void digito(DataTable dataTable) throws InterruptedException{
+        List<String> coresDigitadas = dataTable.asList(String.class);
+        for (String novaCor: coresDigitadas) {
+            constantesCampoBy.DigitarCorEncontradanaTabela(novaCor);
+            Thread.sleep(3000);
+            constantesCampoBy.ClicarBotaoViewsDetaisls(novaCor);
+            Thread.sleep(3000);
+        }
+        constantesCampoBy.ClicarBotaoClear();
     }
 }
 

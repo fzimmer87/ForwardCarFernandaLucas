@@ -18,7 +18,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 //No glue, especifico o pacote daquela classe de passo a passo que criei com Cucumber (passo a passo de cada cenário)
 @CucumberOptions(
         features = {
-                "C:\\Projetos\\Java\\ForwardCarTestAutomation\\src\\test\\java\\resources",
+                "C:\\ProjetosBN\\Projetos individuais\\ProjetoGrupo\\ForwardCarFernandaLucas\\src\\test\\java\\resources\\forwardCarLoanApplication.feature",
         },
         glue = {
                 "org.examples"

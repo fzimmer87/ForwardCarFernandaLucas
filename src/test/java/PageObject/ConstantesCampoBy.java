@@ -14,7 +14,9 @@ public class ConstantesCampoBy {
     private By BotaoSearch = By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[2]/div[2]/a[2]/label/input");
     private By CampoDeRetornodosCarros = By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[3]/div[3]/div/div[1]");
     private By CampoCorViewsDetails = By.xpath("/html/body/div[4]/div/div/div/div[2]/table/tbody/tr[5]/td[2]");
-    private By BotaoViewsDetails = By.xpath("//button[contains(@ng-click,'loadCarDetails(car.vin);')]");
+    private By CampoYearNaTelaDePesquisa = By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[3]/div[1]/div/div[2]/p[1]");
+    private String BotaoViewsDetailsInicio = "/html/body/div[1]/div[2]/div/div/div/div/div[3]/div[";
+    private String BotaoViewsDetailsFim = "]/div/div[3]/button[1]";
     private By BotaoClear = By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[2]/div[2]/a[2]/button");
     private By BotaoDelete = By.cssSelector("body.ng-scope:nth-child(2) div.container.site:nth-child(1) div.ng-scope:nth-child(2) div.row.ng-scope div.ng-scope div.container div.row div.col-sm-9 div.col-sm-4.ng-scope:nth-child(1) div.panel.panel-primary.text-center div.panel-footer > button.center-block.btn.btn-primary.btn-block.btn-xs:nth-child(3)");
     private By BotaoAddCar = By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div/button");
@@ -46,14 +48,14 @@ public class ConstantesCampoBy {
     private By CampoPassword = By.xpath("//*[@id=\"registration-form\"]/fieldset/div[4]/input");
     private By BotaoRegisterLogin = By.xpath("//*[@id=\"registration-form\"]/fieldset/div[5]/button");
     private By CampoResultadoBusca = By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[3]");
-    private By CampoYearTelaPesquisa = By.xpath("/html/body/div[1]/div[2]/div/div/div/div/div[3]/div[1]/div/div[2]/p[1]");
+    private String CampoYearTelaPesquisaInicio = "/html/body/div[1]/div[2]/div/div/div/div/div[3]/div[";
+    private String CampoYearTelaPesquisaFim = "]/div/div[2]/p[1]";
     private By CampoCartaoCarro = By.xpath("//div[contains(@class, 'panel panel-primary text-center')]");
 
 
     public ConstantesCampoBy(WebDriver driver) {
         this.driver = driver;
     }
-
 
 
     public boolean AcharElementoPainel() {
@@ -129,24 +131,34 @@ public class ConstantesCampoBy {
         coratual.clear();
         coratual.sendKeys(corAtual);
     }
-    public void ClicarBotaoViewsDetaisls(String corDigitada)throws InterruptedException {
-        List<WebElement>campoViewDetaisls = driver.findElements(CampoCartaoCarro);
-        for (WebElement acharCores : campoViewDetaisls){
-            driver.findElement(BotaoViewsDetails).click();
+
+    public void ClicarBotaoViewsDetaisls(String corDigitada) throws InterruptedException {
+        List<WebElement> campoViewDetaisls = driver.findElements(CampoCartaoCarro);
+        int posicaoBotao;
+
+        for (int i = 0; i < campoViewDetaisls.size(); i++) {
+            // for (WebElement acharCores : campoViewDetaisls) {
+            posicaoBotao = i + 1;
+            String botoesViewsDetails = BotaoViewsDetailsInicio + posicaoBotao + BotaoViewsDetailsFim;
+            driver.findElement(By.xpath(botoesViewsDetails)).click();
             Thread.sleep(3000);
             String texto = driver.findElement(CampoCorViewsDetails).getText();
             Thread.sleep(3000);
-            if (texto.equals(corDigitada) ) {
+            if (texto.equals(corDigitada)) {
                 Thread.sleep(3000);
                 clicarBotaoOkViewsDetails();
                 System.out.println("true");
+            } else {
+                System.out.println("false");
+                clicarBotaoOkViewsDetails();
             }
         }
-        System.out.println("false");
     }
-    public void clicarBotaoOkViewsDetails(){
+
+    public void clicarBotaoOkViewsDetails() {
         this.driver.findElement(BotaoOkViewsDetaisls).click();
     }
+
 
     public void ClicarNoBotaoGuest() {
         this.driver.findElement(BotaoGuest).click();
@@ -196,9 +208,11 @@ public class ConstantesCampoBy {
     public void preencherFirstName(String firstName) {
         this.driver.findElement(CampoFirstName).sendKeys(firstName);
     }
+
     public void preencherLastName(String lastName) {
         this.driver.findElement(CampoLastName).sendKeys(lastName);
     }
+
     public void preencherUsarname(String username) {
         this.driver.findElement(CampoUsarname).sendKeys(username);
     }
@@ -206,27 +220,43 @@ public class ConstantesCampoBy {
     public void preencherPassword(String password) {
         this.driver.findElement(CampoPassword).sendKeys(password);
     }
-    public void clicarBotaoRegister(){
+
+    public void clicarBotaoRegister() {
         this.driver.findElement(BotaoRegisterLogin).click();
     }
-    public void validarCampoMakeAcuraRLXAWD(){
+
+    public void validarCampoMakeAcuraRLXAWD() {
         String acharTextoNaTela = driver.findElement(CampoResultadoBusca).getText();
         Assert.assertEquals(acharTextoNaTela, "Acura RLX-AWD");
     }
+
     public void digitarAnoDosCarros(String anoDigitado) {
         WebElement anodigitado = driver.findElement(BotaoCampoSearch);
         anodigitado.clear();
         anodigitado.sendKeys(anoDigitado);
+    }
+
+    public void pegarTextoDoCampoYear(String anoCarro) throws InterruptedException {
+        List<WebElement> campoViewDetaisls = driver.findElements(CampoCartaoCarro);
+        int posicaoBotao;
+
+        for (int i = 0; i < campoViewDetaisls.size(); i++) {
+            posicaoBotao = i + 1;
+            String botoesViewsDetails = CampoYearTelaPesquisaInicio + posicaoBotao + CampoYearTelaPesquisaFim;
+            String texto = driver.findElement(By.xpath(botoesViewsDetails)).getText();
+            Thread.sleep(3000);
+            if (texto.contains(anoCarro)) {
+                Thread.sleep(3000);
+                System.out.println("true");
+            } else {
+                System.out.println("false");
+            }
+        }
 
     }
-    public boolean pegarTextoDoCampoYear(String anoCarro){
-        String texto = this.driver.findElement(CampoYearTelaPesquisa).getText();
-        if (texto.contains(anoCarro)){
-            return true;
-        }
-        return false;
-    }
 }
+
+
 
 
 

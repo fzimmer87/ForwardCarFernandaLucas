@@ -3,7 +3,7 @@
 Funcionalidade: Testar página da ForwardCar
 
   @CT001
-  Cenario: Validar o campo Nome com Nomes dos respectivos carros
+  Cenario: Validar o campo Search com nome Acura
     Dado que estou na página da Forward Car
     Quando clico em search
     E digito "Acura"
@@ -13,7 +13,7 @@ Funcionalidade: Testar página da ForwardCar
   Cenario: Validar o campo Search como Cor
     Dado que estou na página da Forward Car
     Quando clico em search
-    E digito
+    E digito as respectivas cores
 
       | Red    |
       | Blue   |

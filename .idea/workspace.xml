@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62fb1d79-b8e4-4ca6-b91e-fa13b6a2b51c" name="Changes" comment="Testes 6,7,8,9 e 10 adicionados">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Constantes/ConstantesUrls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Constantes/ConstantesUrls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PageObject/CommomSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObject/CommomSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PageObject/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObject/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PageObject/SearchPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObject/SearchPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PageObject/ConstantesCampoBy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PageObject/ConstantesCampoBy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/examples/StepsForwardCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/examples/StepsForwardCar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/examples/StepsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/examples/StepsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/examples/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/examples/TestRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/resources/Feature.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/resources/Feature.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,26 +64,6 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.Runner (1)">
-    <configuration name="Scenario: Validar o Botao Loan Aplication tela Inicial" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="5" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/Feature/Feature.feature" />
-      <option name="GLUE" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="ForwardCarFernandaLucas" />
-      <option name="NAME_FILTER" value="^Validar o Botao Loan Aplication tela Inicial$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Validar o Botao Loan Aplication tela Inicial$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Validar o Botao Loan Aplication tela Inicial" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.cucumber.core.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Scenario: Validar o campo Nome com Nomes dos respectivos carros (1)" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/resources/Feature.feature" />
@@ -169,20 +149,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestRunner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Video1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.examples.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.examples" />
+      <option name="MAIN_CLASS_NAME" value="org.examples.TestRunner" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Cucumber Java.Scenario: Validar o campo Nome com Nomes dos respectivos carros (1)" />
       <item itemvalue="Cucumber Java.Scenario: Validar o campo Search como Cor (1)" />
-      <item itemvalue="Cucumber Java.Scenario: Validar o Botao Loan Aplication tela Inicial" />
+      <item itemvalue="JUnit.TestRunner" />
       <item itemvalue="JUnit.Runner (1)" />
       <item itemvalue="JUnit.Runner" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.Runner (1)" />
+        <item itemvalue="JUnit.TestRunner" />
         <item itemvalue="Cucumber Java.Scenario: Validar o campo Search como Cor (1)" />
         <item itemvalue="Cucumber Java.Scenario: Validar o campo Nome com Nomes dos respectivos carros (1)" />
         <item itemvalue="JUnit.Runner" />
-        <item itemvalue="Cucumber Java.Scenario: Validar o Botao Loan Aplication tela Inicial" />
       </list>
     </recent_temporary>
   </component>
@@ -302,14 +297,9 @@
           <option name="timeStamp" value="6" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/org/examples/StepsForwardCar.java</url>
-          <line>66</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/PageObject/ConstantesCampoBy.java</url>
-          <line>132</line>
-          <option name="timeStamp" value="17" />
+          <line>244</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
